@@ -30,9 +30,7 @@ $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 输入安装目录及口令，找到目录下.ssh文件夹下id_rsa.pub文件
 登陆GitHub-&amp;gt;Settings-&amp;gt;“SSH Keys”，然后，点“Add SSH Key”，输">
-<meta property="og:image" content="http://cnd.aips.me/photos-0.jpg">
-<meta property="og:image" content="http://oc90zyyoj.bkt.clouddn.com/juan_avater.jpg">
-<meta property="og:updated_time" content="2016-08-31T02:54:53.254Z">
+<meta property="og:updated_time" content="2016-09-01T01:57:14.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用Hexo搭建Github静态博客">
 <meta name="twitter:description" content="环境搭建配置github
@@ -45,7 +43,6 @@ $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 输入安装目录及口令，找到目录下.ssh文件夹下id_rsa.pub文件
 登陆GitHub-&amp;gt;Settings-&amp;gt;“SSH Keys”，然后，点“Add SSH Key”，输">
-<meta name="twitter:image" content="http://cnd.aips.me/photos-0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="ROLEX&#39;s Blog" type="application/atom+xml">
   
@@ -317,11 +314,9 @@ deploy:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: github
-  repository: git@github.com:rolex-cjj.github.io.git
+  repository: https://github.com/rolex-cjj/rolex-cjj.github.io.git
   branch: master
 </code></pre><p><strong>Note:</strong></p>
-<p>Repository：必须是SSH形式的url，而不能是HTTPS形式的url，否则会出现错误。</p>
-<p>使用SSH url，如果电脑没有开放SSH 端口，会致部署失败。</p>
 <p>如果你是为一个项目制作网站，那么需要把branch设置为gh-pages。</p>
 <p> <strong>将其 deploy 到仓库中</strong></p>
 <p>依次执行以下命令</p>
