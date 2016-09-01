@@ -30,7 +30,7 @@ $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 $ ssh-keygen -t rsa -C &amp;quot;youremail@163.com&amp;quot;
 输入安装目录及口令，找到目录下.ssh文件夹下id_rsa.pub文件
 登陆GitHub-&amp;gt;Settings-&amp;gt;“SSH Keys”，然后，点“Add SSH Key”，输">
-<meta property="og:updated_time" content="2016-09-01T01:57:14.771Z">
+<meta property="og:updated_time" content="2016-09-01T02:44:45.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用Hexo搭建Github静态博客">
 <meta name="twitter:description" content="环境搭建配置github
@@ -366,17 +366,17 @@ $ hexo s #启动本地服务，进行文章预览调试
 </code></pre><ul>
 <li><strong>主题安装</strong></li>
 </ul>
-<p>Hexo提供了很多主题，参见 <a href="https://hexo.io/themes/" target="_blank" rel="external">Themes</a>，本步骤以minos主题为例</p>
+<p>Hexo提供了很多主题，参见 <a href="https://hexo.io/themes/" target="_blank" rel="external">Themes</a>，本步骤以yilia主题为例</p>
 <p> <strong>安装步骤</strong></p>
-<p>点击主题名获取主题的web url，将Git Shell 切到E:\workspace\hexo\目录下，然后执行下面的命令，将minos下载到 themes/minos 目录下</p>
-<pre><code>$ git clone https://github.com/ppoffice/hexo-theme-minos.git themes/minos
-</code></pre><p>修改你的博客根目录下的config.yml配置文件中的theme属性，将其设置为minos</p>
+<p>点击主题名获取主题的web url，将Git Shell 切到E:\workspace\hexo目录下，然后执行下面的命令，将yilia下载到 themes/yilia 目录下</p>
+<pre><code>$ git clone https://github.com/rolex-cjj/hexo-theme-yilia.git
+</code></pre><p>修改你的博客根目录下的config.yml配置文件中的theme属性，将其设置为yilia</p>
 <pre><code># Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: minos
+theme: yilia
 </code></pre><p> <strong>更新主题</strong></p>
-<pre><code>cd themes/minos
+<pre><code>cd themes/yilia
 git pull
 </code></pre><p>回到根目录，执行以下命令本地预览</p>
 <pre><code>$ hexo s -g
@@ -386,9 +386,60 @@ $ hexo generate
 $ hexo deploy
 </code></pre><p><strong>Note:</strong></p>
 <p>根目录下的配置文件config.yml中还可以设置很多属性，这里就不再赘述了，可以参考<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo 配置</a>  以及 <a href="http://ijiaober.github.io/2014/08/05/hexo/hexo-04/" target="_blank" rel="external">hexo使用攻略</a>，请各位自己去探索吧！</p>
+<h1 id="不同电脑下的同步"><a href="#不同电脑下的同步" class="headerlink" title="不同电脑下的同步"></a>不同电脑下的同步</h1><h2 id="A电脑中从本地上传Hexo到Github仓库"><a href="#A电脑中从本地上传Hexo到Github仓库" class="headerlink" title="A电脑中从本地上传Hexo到Github仓库"></a>A电脑中从本地上传Hexo到Github仓库</h2><ul>
+<li><strong>初始化仓库</strong></li>
+</ul>
+<p>在Hexo博客的根目录运行Git Bash并输入以下命令：</p>
+<pre><code>$git init
+$git remote add origin &lt;server address&gt;
+</code></pre><p>这里<server>指的是在线仓库的地址，比如在这里我的就应该是<a href="https://github.com/rolex-cjj/blog.git" target="_blank" rel="external">https://github.com/rolex-cjj/blog.git</a>, 如果你用其它git仓库服务，填写对应仓库地址即可.</server></p>
+<p>origin是本地分支,remote add会将本地仓库映射到Github仓库</p>
+<ul>
+<li><strong>把本地文件同步到Github上面</strong> </li>
+</ul>
+<p>分别输入执行以下命令：</p>
+<pre><code>$ git add .  #添加所有目录，注意add后面有个点`.`
+$ git commit -m &quot;add to Github&quot; #添加提交说明，每次提交都需要
+$ git push -u origin master   #把更新推送到云端
+</code></pre><p>这时可以登录Github账户查看刚创建的blog仓库中是否上传成功<br>windows平台可能push过程中会提示输入Github的用户名和Github的密码，输入正确便是。</p>
+<p><strong>Note:</strong></p>
+<p>为了在另一台电脑上配置更加方便，严重建议把Hexo博客目录下_config.yml文件复制粘贴一份，并重命名为hexo_config.yml；把themes目录下你用到主题目录下的_config.yml文件也复制一份，并粘贴到<strong>博客根目录</strong>，并命名为theme_config.yml。原因是我们上传的时候，我们自己安装的themes如：<a href="https://github.com/rolex-cjj/hexo-theme-yilia.git" target="_blank" rel="external">yilia</a>，它的’yilia’目录并不能上传，所以我们需要把这两个配置文件都保存下来在进行同步工作。</p>
+<h2 id="B电脑从Github仓库取回Hexo到本地"><a href="#B电脑从Github仓库取回Hexo到本地" class="headerlink" title="B电脑从Github仓库取回Hexo到本地"></a>B电脑从Github仓库取回Hexo到本地</h2><ul>
+<li><strong>把文件取回本地</strong></li>
+</ul>
+<p>安装环境完成后，在新文件夹下运行Git Bash并分别执行以下几条命令：</p>
+<pre><code>$ git init
+$git remote add origin &lt;server address&gt;
+$ git fetch –all
+$ git merge origin/master
+</code></pre><p>这里<server>仍然是你的Giuhub地址。fetch是将仓库中的内容取出来。reset则是不做任何合并（merge）处理，直接把取出的内容保存。运行完merge命令后你会发现文件夹中就会出现刚刚上传的内容。</server></p>
+<ul>
+<li><strong>安装主题，同时更新config文件</strong></li>
+</ul>
+<p>此时在B电脑上就配置成功了。</p>
+<h2 id="B电脑上的Hexo从本地同步到Github仓库"><a href="#B电脑上的Hexo从本地同步到Github仓库" class="headerlink" title="B电脑上的Hexo从本地同步到Github仓库"></a>B电脑上的Hexo从本地同步到Github仓库</h2><pre><code>$ git add .
+$ git commit -m &quot;commit from PC_B&quot;
+$ git push -u origin master
+</code></pre><ul>
+<li><p><strong>更新本地博客</strong></p>
+<p>  $ git pull <a href="https://github.com/xxxx/xxx.git" target="_blank" rel="external">https://github.com/xxxx/xxx.git</a></p>
+</li>
+</ul>
+<p><strong>Note:</strong></p>
+<p>我们每次更新博客时，为了保持我们每次用到的程序都是最新的。</p>
+<p>每次更新博客之前都需要执行</p>
+<p><code>$ git pull https://github.com/xxxx/xxx.git</code></p>
+<p>保持本地最新；</p>
+<p>每次更新博客之后都需要执行</p>
+<pre><code>$ git add .
+$ git commit -m &quot;message&quot;
+$ git push -u origin master
+</code></pre><p>以保持Github仓库程序最新。</p>
+<p>现在我们就能实现在不同电脑都能对我们的Hexo博客进行维护了</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a></p>
 <p><a href="http://www.jianshu.com/p/985d07d88ef4" target="_blank" rel="external">Windows下一步步搭建自己的独立博客——使用 GitHub Pages + Hexo 基础教程（一）</a></p>
-<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p><a href="http://mungo.space/2015/10/14/create-hexo-on-github-4/" target="_blank" rel="external">在Github上面搭建Hexo博客: 使用不同电脑维护</a></p>
+<p><a href="http://mungo.space/2015/10/14/create-hexo-on-github-4/" target="_blank" rel="external">在Github上面搭建Hexo博客: 使用不同电脑维护</a></p>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p><a href="https://nextinnovationucas.github.io/" target="_blank" rel="external">Qi’s Blog </a></p>
 
       
     </div>
