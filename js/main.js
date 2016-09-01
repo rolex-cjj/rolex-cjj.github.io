@@ -1,4 +1,9 @@
 require([], function (){
+	
+	var configRoot = yiliaConfig.root;
+ 	if ((configRoot.charAt(configRoot.length - 1) == '/')) {
+ 		yiliaConfig.root = configRoot.substring(0, configRoot.length - 1)
+ 	}
 
 	var isMobileInit = false;
 	var loadMobile = function(){
