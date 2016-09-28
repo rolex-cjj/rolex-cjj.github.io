@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>程序的链接和装入 | ROLEX&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。
+链接器和装入器的基本工作原理一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。编译就是把高级语言变成计算机可以识别的2进制语言。链接的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序的链接和装入">
+<meta property="og:url" content="https://rolex-cjj.github.io/2016/09/26/linking-and-loading-of-program/index.html">
+<meta property="og:site_name" content="ROLEX's Blog">
+<meta property="og:description" content="最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。
+链接器和装入器的基本工作原理一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。编译就是把高级语言变成计算机可以识别的2进制语言。链接的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引">
+<meta property="og:updated_time" content="2016-09-28T05:54:57.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序的链接和装入">
+<meta name="twitter:description" content="最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。
+链接器和装入器的基本工作原理一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。编译就是把高级语言变成计算机可以识别的2进制语言。链接的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引">
+  
+    <link rel="alternative" href="/atom.xml" title="ROLEX&#39;s Blog" type="application/atom+xml">
+  
+  
+	
+      <link rel="icon" href="/favicon.png">
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			
+ 					<img lazy-src="https://oc90zyyoj.bkt.clouddn.com/juan_avater.jpg" class="js-avatar show">
+ 				
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">juan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不忘初心</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://nextinnovationucas.github.io/">Qi&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">juan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="nullhttps://oc90zyyoj.bkt.clouddn.com/juan_avater.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">juan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不忘初心</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-linking-and-loading-of-program" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/26/linking-and-loading-of-program/" class="article-date">
+  	<time datetime="2016-09-26T06:38:46.000Z" itemprop="datePublished">2016-09-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      程序的链接和装入
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。</p>
+<h2 id="链接器和装入器的基本工作原理"><a href="#链接器和装入器的基本工作原理" class="headerlink" title="链接器和装入器的基本工作原理"></a>链接器和装入器的基本工作原理</h2><p>一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。<strong>编译</strong>就是把高级语言变成计算机可以识别的2进制语言。<strong>链接</strong>的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引用本质是对其在内存中具体地址的引用，因此确定符号地址是编译，链接，加载过程中一项不可缺少的工作，这就是所谓的符号重定位。<strong>本质上来说，符号重定位要解决的是当前编译单元如何访问「外部」符号这个问题。</strong></p>
+<p>编译器只能在一个模块内部完成符号名到地址的转换工作，不同模块间的符号解析由谁来做呢？实际上，这个工作是由链接器来完成的。</p>
+<p>为了解决不同模块间的链接问题，链接器主要有两个工作要做――符号解析和重定位：</p>
+<p><strong>符号解析：</strong>当一个模块使用了在该模块中没有定义过的函数或全局变量时，编译器生成的符号表会标记出所有这样的函数或全局变量，而链接器的责任就是要到别的模块中去查找它们的定义，如果没有找到合适的定义或者找到的合适的定义不唯一，符号解析都无法正常完成。</p>
+<p><strong>重定位：</strong>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，链接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个的拼装起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段中的某些位置进行修改。编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“<strong>重定位表</strong>”(relocatioin table), 链接器通过重定位表知道目标文件中哪些地方需要修正。</p>
+<a id="more"></a>
+<p>举个简单的例子，假如我们有一个程序由两部分构成，m.c中的main函数调用f.c中实现的函数sum：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* m.c */</span></div><div class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> j = <span class="number">2</span>;</div><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">int</span> s;</div><div class="line">        s = sum(i, j);</div><div class="line"><span class="comment">/* f.c */</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">return</span> i + j;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在Linux用gcc分别将两段源程序编译成目标文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc -c m.c</div><div class="line">$ gcc -c f.c</div></pre></td></tr></table></figure>
+<p>我们通过objdump来看看在编译过程中生成的符号表和重定位表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ objdump -x m.o</div><div class="line">……</div><div class="line">SYMBOL TABLE:</div><div class="line">……</div><div class="line">00000000 g		O .data  00000004 i</div><div class="line">00000004 g		O .data  00000004 j</div><div class="line">00000000 g		F .text  00000021 main</div><div class="line">00000000         *UND*  00000000 sum</div><div class="line">RELOCATION RECORDS FOR [.text]:</div><div class="line">OFFSET   TYPE              VALUE</div><div class="line">00000007 R_386_32          j</div><div class="line">0000000d R_386_32          i</div><div class="line">00000013 R_386_PC32        sum</div></pre></td></tr></table></figure>
+<p>我们注意到符号表里面的sum被标记为UND（undefined），也就是在m.o中没有定义，所以将来要通过Linux下的链接器的符号解析功能到别的模块中去查找是否存在函数sum的定义。</p>
+<p>在重定位表中，其中 offset 用于指明需要修改的位置在该段中的偏移，TYPE 则指明要怎样去修改，因为 cpu 的寻址方式不是唯一的，寻址方式不同，地址的形式也有所不同，这个 type 用于指明怎么去修改, value 则是配合 type 来最后计算该符号地址的。重定位表有三条记录，指出了在重定位过程中代码段中三处需要修改的位置，分别位于7、d和13。经过重定位之后最终的可执行程序就生成了。</p>
+<p>可执行程序生成后，下一步就是将其装入内存运行。将可执行程序装入内存运行的功能是由execve(2)这一系统调用实现的。简单来讲，程序的装入主要包含以下几个步骤：</p>
+<ul>
+<li>读入可执行文件的头部信息以确定其文件格式及地址空间的大小；</li>
+<li>以段的形式划分地址空间；</li>
+<li>将可执行程序读入地址空间中的各个段，建立虚实地址间的映射关系；</li>
+<li>将bbs段清零；</li>
+<li>创建堆栈段；</li>
+<li>建立程序参数、环境变量等程序运行过程中所需的信息；</li>
+<li>启动运行。</li>
+</ul>
+<h2 id="链接和装入技术的发展史"><a href="#链接和装入技术的发展史" class="headerlink" title="链接和装入技术的发展史"></a>链接和装入技术的发展史</h2><h4 id="1．-静态链接、静态装入"><a href="#1．-静态链接、静态装入" class="headerlink" title="1．    静态链接、静态装入"></a>1．    静态链接、静态装入</h4><p>这种方法最早被采用，其特点是简单，不需要操作系统提供任何额外的支持。像C这样的编程语言从很早开始就已经支持分别编译了，程序的不同模块可以并行开发，然后独立编译为相应的目标文件。在得到了所有的目标文件后，静态链接、静态装入的做法是将所有目标文件链接成一个可执行映象，随后在创建进程时将该可执行映象一次全部装入内存。举个简单的例子，假设我们开发了两个程序Prog1和Prog2，Prog1由main1.c、utilities.c以及errhdl1.c三部分组成，分别对应程序的主框架、一些公用的辅助函数（其作用相当于库）以及错误处理部分，这三部分代码编译后分别得到各自对应的目标文件main1.o、utilities.o以及errhdl1.o。同样，Prog2由main2.c、utilities.c以及errhdl2.c三部分组成，三部分代码编译后分别得到各自对应的目标文件main2.o、utilities.o以及errhdl2.o。值得注意的是，这里Prog1和Prog2使用了相同的公用辅助函数utilities.o。</p>
+<p>当我们采用静态链接、静态装入的方法，同时运行这两个程序时，就硬盘的使用来讲，虽然两个程序共享使用了utilities，但utilities.o被链接进了每一个用到它的程序的可执行映象。内存的使用也是如此，操作系统在创建进程时将程序的可执行映象一次全部装入内存，之后进程才能开始运行。采用这种方法使得操作系统的实现变得非常简单，但其缺点也是显而易见的。首先，既然两个程序使用的是相同的utilities.o，那么我们只要在硬盘上保存utilities.o的一份拷贝应该就足够了；另外，假如程序在运行过程中没有出现任何错误，那么错误处理部分的代码就不应该被装入内存。因此静态链接、静态装入的方法不但浪费了硬盘空间，同时也浪费了内存空间。</p>
+<h4 id="2．-静态链接、动态装入"><a href="#2．-静态链接、动态装入" class="headerlink" title="2．    静态链接、动态装入"></a>2．    静态链接、动态装入</h4><p>由于内存紧张的问题在早期的系统中显得更加突出，因此人们首先想到的是要解决内存使用效率不高这一问题，于是便提出了动态装入的思想。其想法是非常简单的，即一个函数只有当它被调用时，其所在的模块才会被装入内存。所有的模块都以一种可重定位的装入格式存放在磁盘上。首先，主程序被装入内存并开始运行。当一个模块需要调用另一个模块中的函数时，首先要检查含有被调用函数的模块是否已装入内存。如果该模块尚未被装入内存，那么将由负责重定位的链接装入器将该模块装入内存，同时更新此程序的地址表以反应这一变化。之后，控制便转移到了新装入的模块中被调用的函数那里。</p>
+<p>动态装入的优点在于永远不会装入一个使用不到的模块。如果程序中存在着大量像出错处理函数这种用于处理小概率事件的代码，使用这种方法无疑是卓有成效的。在这种情况下，即使整个程序可能很大，但是实际用到（因此被装入到内存中）的部分实际上可能非常小。</p>
+<h4 id="3．-动态链接、动态装入"><a href="#3．-动态链接、动态装入" class="headerlink" title="3．    动态链接、动态装入"></a>3．    动态链接、动态装入</h4><p>既然两个程序用到的是相同的utilities.o，那么理想的情况是系统中只保存一份utilities.o的拷贝，无论是在内存中还是在硬盘上，于是人们想到了动态链接。动态链接(Dynamic Linking)的基本思想是把程序的模块相互划分开来，形成独立的文件，而不再将他们静态的链接在一起。简单地讲，就是不对那些组成程序的目标文件进行链接，等到程序要运行时才进行链接。也就是说，把链接这个过程推迟到了运行时再进行。</p>
+<p>在使用动态链接时，需要在程序映象中每个调用库函数的地方打一个桩（stub）。stub是一小段代码，用于定位已装入内存的相应的库；如果所需的库还不在内存中，stub将指出如何将该函数所在的库装入内存。</p>
+<p>当执行到这样一个stub时，首先检查所需的函数是否已位于内存中。如果所需函数尚不在内存中，则首先需要将其装入。不论怎样，stub最终将被调用函数的地址替换掉。这样，在下次运行同一个代码段时，同样的库函数就能直接得以运行，从而省掉了动态链接的额外开销。由此，用到同一个库的所有进程在运行时使用的都是这个库的同一份拷贝。</p>
+<p>动态链接的这一特性对于库的升级（比如错误的修正）是至关重要的。当一个库升级到一个新版本时，所有用到这个库的程序将自动使用新的版本。如果不使用动态链接技术，那么所有这些程序都需要被重新链接才能得以访问新版的库。为了避免程序意外使用到一些不兼容的新版的库，通常在程序和库中都包含各自的版本信息。内存中可能会同时存在着一个库的几个版本，但是每个程序可以通过版本信息来决定它到底应该使用哪一个。如果对库只做了微小的改动，库的版本号将保持不变；如果改动较大，则相应递增版本号。因此，如果新版库中含有与早期不兼容的改动，只有那些使用新版库进行编译的程序才会受到影响，而在新版库安装之前进行过链接的程序将继续使用以前的库。这样的系统被称作共享库系统。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.cnblogs.com/catch/p/3857964.html" target="_blank" rel="external">linux下动态链接实现原理 </a></p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/l-dynlink/index.html" target="_blank" rel="external">程序的链接和装入及Linux下动态链接的实现 </a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/28/solve-trial-version-of-teamviewer11-expire/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          解决TeamViewer 11 “试用期已到期”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/24/Android-Studio-NDK-Debugging/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Studio NDK 调试</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="linking-and-loading-of-program" data-title="程序的链接和装入" data-url="https://rolex-cjj.github.io/2016/09/26/linking-and-loading-of-program/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 juan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/rolex-cjj/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: '/'
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+ 	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">'+'</sc'+'ript>');
+ 	})();
+</script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script>
+	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">'+'</sc'+'ript>');
+	})();
+</script>
+
+
+  </div>
+</body>
+</html>
