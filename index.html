@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -186,6 +186,142 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-javaSE-abstraction2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/18/javaSE-abstraction2/" class="article-date">
+  	<time datetime="2016-10-18T00:44:06.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/18/javaSE-abstraction2/">JAVA基础知识点摘录2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h4 id="String"><a href="#String" class="headerlink" title="String"></a><strong>String</strong></h4><p>​    String类具有<strong>不可变性</strong>。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringBuilder 类。</p>
+</li>
+<li><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a><strong>包装类</strong></h4><p>​    基本数据类型不具备对象特性，不能调用方法，所以java为每个基本数据类型都提供了一个包装类，使其具有对象特性。基本类型和包装类对应关系。</p>
+<p>​    包装类主要提供了两大类方法：</p>
+<ol>
+<li><p>将本类型和其他基本类型进行转换的方法</p>
+</li>
+<li><p>将字符串和本类型及包装类互相转换的方法</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/18/javaSE-abstraction2/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-javaSE-abstraction1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/12/javaSE-abstraction1/" class="article-date">
+  	<time datetime="2016-10-12T02:15:12.000Z" itemprop="datePublished">2016-10-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/12/javaSE-abstraction1/">JAVA基础知识点摘录1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    摘录一点自己平时遇到的java知识点中不明了的地方，仅供参考。</p>
+<ol>
+<li><h4 id="JDK-JVM-JRE傻傻分不清楚"><a href="#JDK-JVM-JRE傻傻分不清楚" class="headerlink" title="JDK,JVM,JRE傻傻分不清楚"></a><strong>JDK,JVM,JRE傻傻分不清楚</strong></h4><p>​    <strong>JDK (java development kit)</strong>，就是java的开发工具集，顾名思义就是做开发用的，其中包括javac (java compiler)以及JRE (java 运行环境)等。jdk本身是由java编写的。</p>
+<p>​    让我们看一下JDK的安装目录。在目录下面有 六个文件夹、一个src类库源码压缩包、和其他几个声明文件。其中，真正在运行java时起作用的 是以下四个文件夹：bin、include、lib、 jre。现在我们可以看出这样一个关系，JDK包含JRE，而JRE包含JVM。</p>
+<p>​    - bin:最主要的是编译器(javac.exe)</p>
+<p>​    - include:java和JVM交互用的头文件</p>
+<p>​    - lib：类库</p>
+<p>​    - jre:java运行环境</p>
+<p>​    （注意：这里的bin、lib文件夹和jre里的bin、lib是 不同的）总的来说JDK是用于java程序的开发，而jre则是只能运行class而没有编译的功能。eclipse、idea等 其他IDE有自己的编译器而不是用JDK bin目录中自带的，所以在安装时你会发现他们只要求你 选中jre路径就ok了。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/12/javaSE-abstraction1/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux-memory-address-access" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -419,137 +555,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/26/linking-and-loading-of-program/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-Studio-NDK-Debugging" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/24/Android-Studio-NDK-Debugging/" class="article-date">
-  	<time datetime="2016-09-24T02:05:28.000Z" itemprop="datePublished">2016-09-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/Android-Studio-NDK-Debugging/">Android Studio NDK 调试</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本人最近在接触Android Studio，是个新手，完全不懂，发现它和eclipse还是有一些差别的。Android开发过程中要Debug，弄了好久才弄好，现在整理一下，方便以后查看。</p>
-<p>我的IDE是Android Studio 1.5.1，NDK是 android-ndk-r10e。前面的一些配置我就不细说了，主要是针对Debug整理一下。</p>
-<h2 id="步骤1"><a href="#步骤1" class="headerlink" title="步骤1"></a>步骤1</h2><p>打开module的build.gradle文件，在buildTypes下添加以下代码。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">debug&#123;</div><div class="line">  jniDebuggable true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/24/Android-Studio-NDK-Debugging/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-how-to-synchronize-between-multiPCs" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/how-to-synchronize-between-multiPCs/" class="article-date">
-  	<time datetime="2016-09-02T05:56:42.000Z" itemprop="datePublished">2016-09-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/how-to-synchronize-between-multiPCs/">Github实现不同电脑下hexo博客的同步</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hexo+github如何建立自己的博客在上节中已经讲过了，详情请见<a href="https://rolex-cjj.github.io/2016/08/30/how-to-build-my-own-blog-by-hexo/">如何用Hexo搭建Github静态博客</a></p>
-<p>本节将介绍如何在不同电脑上同步本地的博客。假设A电脑为建立博客的设备，B电脑为新设备。</p>
-<h2 id="A电脑中从本地上传Hexo到Github仓库"><a href="#A电脑中从本地上传Hexo到Github仓库" class="headerlink" title="A电脑中从本地上传Hexo到Github仓库"></a>A电脑中从本地上传Hexo到Github仓库</h2><ul>
-<li><strong>初始化仓库</strong></li>
-</ul>
-<p>在Hexo博客的根目录运行Git Bash并输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git remote add origin &lt;server address&gt;</div></pre></td></tr></table></figure>
-<p> 这里<server>指的是在线仓库的地址，比如在这里我的就应该是<a href="https://github.com/rolex-cjj/blog.git">https://github.com/rolex-cjj/blog.git</a>, 如果你用其它git仓库服务，填写对应仓库地址即可.</p>
-<p>origin是本地分支,remote add会将本地仓库映射到Github仓库</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/02/how-to-synchronize-between-multiPCs/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
