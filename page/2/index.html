@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -186,6 +186,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linking-and-loading-of-program" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/26/linking-and-loading-of-program/" class="article-date">
+  	<time datetime="2016-09-26T06:38:46.000Z" itemprop="datePublished">2016-09-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/26/linking-and-loading-of-program/">程序的链接和装入</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。</p>
+<h2 id="链接器和装入器的基本工作原理"><a href="#链接器和装入器的基本工作原理" class="headerlink" title="链接器和装入器的基本工作原理"></a>链接器和装入器的基本工作原理</h2><p>一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。<strong>编译</strong>就是把高级语言变成计算机可以识别的2进制语言。<strong>链接</strong>的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引用本质是对其在内存中具体地址的引用，因此确定符号地址是编译，链接，加载过程中一项不可缺少的工作，这就是所谓的符号重定位。<strong>本质上来说，符号重定位要解决的是当前编译单元如何访问「外部」符号这个问题。</strong></p>
+<p>编译器只能在一个模块内部完成符号名到地址的转换工作，不同模块间的符号解析由谁来做呢？实际上，这个工作是由链接器来完成的。</p>
+<p>为了解决不同模块间的链接问题，链接器主要有两个工作要做――符号解析和重定位：</p>
+<p><strong>符号解析：</strong>当一个模块使用了在该模块中没有定义过的函数或全局变量时，编译器生成的符号表会标记出所有这样的函数或全局变量，而链接器的责任就是要到别的模块中去查找它们的定义，如果没有找到合适的定义或者找到的合适的定义不唯一，符号解析都无法正常完成。</p>
+<p><strong>重定位：</strong>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，链接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个的拼装起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段中的某些位置进行修改。编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“<strong>重定位表</strong>”(relocatioin table), 链接器通过重定位表知道目标文件中哪些地方需要修正。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/26/linking-and-loading-of-program/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-Studio-NDK-Debugging" class="article article-type-post" itemscope itemprop="blogPost">
   

@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -187,6 +187,77 @@
 
       <div class="body-wrap">
   
+    <article id="post-apt-mirror-to-create-native-ubuntu-source" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/" class="article-date">
+  	<time datetime="2016-10-18T07:40:17.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/">ubuntu16.04 使用apt-mirror配置本地源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装apt-mirror"><a href="#安装apt-mirror" class="headerlink" title="安装apt-mirror"></a><strong>安装apt-mirror</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo apt-get install apt-mirror</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>查看系统的研发代号</strong></li>
+</ul>
+<p>首先查看自己的ubuntu系统的Codename，这直接导致你更新的源是否对你的系统起效果，查看方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsb_release –a</div></pre></td></tr></table></figure>
+<p>我的系统Codename为xenial。</p>
+<ul>
+<li><strong>确认源支持</strong></li>
+</ul>
+<p>以阿里源为例，登陆 <a href="http://mirrors.aliyun.com/ubuntu/dists/">http://mirrors.aliyun.com/ubuntu/dists/</a> ，该网页显示了阿里云支持的ubuntu系统下各个Codename版本，确保自己的Codename在该网页中存在。</p>
+<p>附上16.04源列表：<a href="http://wiki.ubuntu.com.cn/%E6%A8%A1%E6%9D%BF:16.04source">http://wiki.ubuntu.com.cn/%E6%A8%A1%E6%9D%BF:16.04source</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apt-mirror/">apt-mirror</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javaSE-abstraction2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -213,11 +284,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><h4 id="String"><a href="#String" class="headerlink" title="String"></a><strong>String</strong></h4><p>​    String类具有<strong>不可变性</strong>。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringBuilder 类。</p>
-</li>
-<li><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a><strong>包装类</strong></h4><p>​    基本数据类型不具备对象特性，不能调用方法，所以java为每个基本数据类型都提供了一个包装类，使其具有对象特性。基本类型和包装类对应关系。</p>
-<p>​    包装类主要提供了两大类方法：</p>
+        <h3 id="String"><a href="#String" class="headerlink" title="String"></a><strong>String</strong></h3><p>String类具有<strong>不可变性</strong>。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringBuilder 类。</p>
+<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a><strong>包装类</strong></h3><p>基本数据类型不具备对象特性，不能调用方法，所以java为每个基本数据类型都提供了一个包装类，使其具有对象特性。基本类型和包装类对应关系。</p>
+<p>包装类主要提供了两大类方法：</p>
 <ol>
 <li><p>将本类型和其他基本类型进行转换的方法</p>
 </li>
@@ -281,15 +350,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    摘录一点自己平时遇到的java知识点中不明了的地方，仅供参考。</p>
-<ol>
-<li><h4 id="JDK-JVM-JRE傻傻分不清楚"><a href="#JDK-JVM-JRE傻傻分不清楚" class="headerlink" title="JDK,JVM,JRE傻傻分不清楚"></a><strong>JDK,JVM,JRE傻傻分不清楚</strong></h4><p>​    <strong>JDK (java development kit)</strong>，就是java的开发工具集，顾名思义就是做开发用的，其中包括javac (java compiler)以及JRE (java 运行环境)等。jdk本身是由java编写的。</p>
-<p>​    让我们看一下JDK的安装目录。在目录下面有 六个文件夹、一个src类库源码压缩包、和其他几个声明文件。其中，真正在运行java时起作用的 是以下四个文件夹：bin、include、lib、 jre。现在我们可以看出这样一个关系，JDK包含JRE，而JRE包含JVM。</p>
-<p>​    - bin:最主要的是编译器(javac.exe)</p>
-<p>​    - include:java和JVM交互用的头文件</p>
-<p>​    - lib：类库</p>
-<p>​    - jre:java运行环境</p>
-<p>​    （注意：这里的bin、lib文件夹和jre里的bin、lib是 不同的）总的来说JDK是用于java程序的开发，而jre则是只能运行class而没有编译的功能。eclipse、idea等 其他IDE有自己的编译器而不是用JDK bin目录中自带的，所以在安装时你会发现他们只要求你 选中jre路径就ok了。</p>
+        <p>摘录一点自己平时遇到的java知识点中不明了的地方，仅供参考。</p>
+<h3 id="JDK-JVM-JRE傻傻分不清楚"><a href="#JDK-JVM-JRE傻傻分不清楚" class="headerlink" title="JDK,JVM,JRE傻傻分不清楚"></a><strong>JDK,JVM,JRE傻傻分不清楚</strong></h3><p><strong>JDK (java development kit)</strong>，就是java的开发工具集，顾名思义就是做开发用的，其中包括javac (java compiler)以及JRE (java 运行环境)等。jdk本身是由java编写的。</p>
+<p>让我们看一下JDK的安装目录。在目录下面有 六个文件夹、一个src类库源码压缩包、和其他几个声明文件。其中，真正在运行java时起作用的 是以下四个文件夹：bin、include、lib、 jre。现在我们可以看出这样一个关系，JDK包含JRE，而JRE包含JVM。</p>
+<ul>
+<li>bin:最主要的是编译器(javac.exe)</li>
+<li>include:java和JVM交互用的头文件</li>
+<li>lib：类库</li>
+<li>jre:java运行环境</li>
+</ul>
+<p>（注意：这里的bin、lib文件夹和jre里的bin、lib是 不同的）总的来说JDK是用于java程序的开发，而jre则是只能运行class而没有编译的功能。eclipse、idea等 其他IDE有自己的编译器而不是用JDK bin目录中自带的，所以在安装时你会发现他们只要求你 选中jre路径就ok了。</p>
       
     </div>
     
@@ -494,67 +564,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/28/solve-trial-version-of-teamviewer11-expire/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linking-and-loading-of-program" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/26/linking-and-loading-of-program/" class="article-date">
-  	<time datetime="2016-09-26T06:38:46.000Z" itemprop="datePublished">2016-09-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/26/linking-and-loading-of-program/">程序的链接和装入</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。</p>
-<h2 id="链接器和装入器的基本工作原理"><a href="#链接器和装入器的基本工作原理" class="headerlink" title="链接器和装入器的基本工作原理"></a>链接器和装入器的基本工作原理</h2><p>一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。<strong>编译</strong>就是把高级语言变成计算机可以识别的2进制语言。<strong>链接</strong>的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引用本质是对其在内存中具体地址的引用，因此确定符号地址是编译，链接，加载过程中一项不可缺少的工作，这就是所谓的符号重定位。<strong>本质上来说，符号重定位要解决的是当前编译单元如何访问「外部」符号这个问题。</strong></p>
-<p>编译器只能在一个模块内部完成符号名到地址的转换工作，不同模块间的符号解析由谁来做呢？实际上，这个工作是由链接器来完成的。</p>
-<p>为了解决不同模块间的链接问题，链接器主要有两个工作要做――符号解析和重定位：</p>
-<p><strong>符号解析：</strong>当一个模块使用了在该模块中没有定义过的函数或全局变量时，编译器生成的符号表会标记出所有这样的函数或全局变量，而链接器的责任就是要到别的模块中去查找它们的定义，如果没有找到合适的定义或者找到的合适的定义不唯一，符号解析都无法正常完成。</p>
-<p><strong>重定位：</strong>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，链接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个的拼装起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段中的某些位置进行修改。编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“<strong>重定位表</strong>”(relocatioin table), 链接器通过重定位表知道目标文件中哪些地方需要修正。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/26/linking-and-loading-of-program/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
