@@ -6,32 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>JSP基础知识摘录 | ROLEX&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP页面生命周期 
-请求重定向和请求转发请求重定向
-客户端行为，response.sendRedirect()，从本质上讲等同于两次请求。前一次的请求对象不会保存，地址栏的URL会改变。
-请求转发
-服务器行为，request.getRequestDispatcher().forward(req,resp)，是一次请求，转发后请求对象会保存，地址栏的URL地址不会改变。
-session与cooki">
+  <meta name="description" content="JSP页面生命周期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP基础知识摘录">
 <meta property="og:url" content="https://rolex-cjj.github.io/2016/10/26/jsp-abstraction/index.html">
 <meta property="og:site_name" content="ROLEX's Blog">
-<meta property="og:description" content="JSP页面生命周期 
-请求重定向和请求转发请求重定向
-客户端行为，response.sendRedirect()，从本质上讲等同于两次请求。前一次的请求对象不会保存，地址栏的URL会改变。
-请求转发
-服务器行为，request.getRequestDispatcher().forward(req,resp)，是一次请求，转发后请求对象会保存，地址栏的URL地址不会改变。
-session与cooki">
+<meta property="og:description" content="JSP页面生命周期">
 <meta property="og:image" content="https://rolex-cjj.github.io/E:\workspace\hexo\image\QQ截图20161026164614.png">
-<meta property="og:updated_time" content="2016-10-26T10:57:12.427Z">
+<meta property="og:updated_time" content="2016-10-31T03:21:12.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP基础知识摘录">
-<meta name="twitter:description" content="JSP页面生命周期 
-请求重定向和请求转发请求重定向
-客户端行为，response.sendRedirect()，从本质上讲等同于两次请求。前一次的请求对象不会保存，地址栏的URL会改变。
-请求转发
-服务器行为，request.getRequestDispatcher().forward(req,resp)，是一次请求，转发后请求对象会保存，地址栏的URL地址不会改变。
-session与cooki">
+<meta name="twitter:description" content="JSP页面生命周期">
 <meta name="twitter:image" content="https://rolex-cjj.github.io/E:\workspace\hexo\image\QQ截图20161026164614.png">
   
     <link rel="alternative" href="/atom.xml" title="ROLEX&#39;s Blog" type="application/atom+xml">
@@ -241,6 +226,7 @@ session与cooki">
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="JSP页面生命周期"><a href="#JSP页面生命周期" class="headerlink" title="JSP页面生命周期"></a><strong>JSP页面生命周期</strong></h3><p> <img src="E:\workspace\hexo\image\QQ截图20161026164614.png" alt="QQ截图20161026164614"></p>
+<a id="more"></a>
 <h3 id="请求重定向和请求转发"><a href="#请求重定向和请求转发" class="headerlink" title="请求重定向和请求转发"></a><strong>请求重定向和请求转发</strong></h3><p><strong>请求重定向</strong></p>
 <p>客户端行为，response.sendRedirect()，从本质上讲等同于两次请求。前一次的请求对象不会保存，地址栏的URL会改变。</p>
 <p><strong>请求转发</strong></p>
