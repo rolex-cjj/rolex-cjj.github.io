@@ -32,9 +32,7 @@
 确认源支持
 
 以阿里源为例，登陆 http://mirrors.aliyun.com/ubuntu/di">
-<meta property="og:image" content="https://rolex-cjj.github.io/file:///C:\Users\rolex\AppData\Local\Temp\msohtmlclip1\01\clip_image002.jpg">
-<meta property="og:image" content="https://rolex-cjj.github.io/file:///C:\Users\rolex\AppData\Local\Temp\msohtmlclip1\01\clip_image004.jpg">
-<meta property="og:updated_time" content="2016-10-24T04:23:42.109Z">
+<meta property="og:updated_time" content="2016-10-26T08:49:03.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04 使用apt-mirror配置本地源">
 <meta name="twitter:description" content="安装apt-mirror1$sudo apt-get install apt-mirror
@@ -48,7 +46,6 @@
 确认源支持
 
 以阿里源为例，登陆 http://mirrors.aliyun.com/ubuntu/di">
-<meta name="twitter:image" content="https://rolex-cjj.github.io/file:///C:\Users\rolex\AppData\Local\Temp\msohtmlclip1\01\clip_image002.jpg">
   
     <link rel="alternative" href="/atom.xml" title="ROLEX&#39;s Blog" type="application/atom+xml">
   
@@ -149,7 +146,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/github/" style="font-size: 20px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 20px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -317,10 +314,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
 <p>执行更新，以重建本地索引。以后就会使用本地的Ubuntu Source服务器了。</p>
 <h3 id="配置中遇到的问题"><a href="#配置中遇到的问题" class="headerlink" title="配置中遇到的问题"></a><strong>配置中遇到的问题</strong></h3><p>我在最后一步重建本地索引的时候报错了。</p>
-<p><img src="file:///C:\Users\rolex\AppData\Local\Temp\msohtmlclip1\01\clip_image002.jpg" alt="img"></p>
 <p>找不到32位的包，可能是amd64中部分源使用了i386的。所以将 /etc/apt/mirror.list 中加入以下语句，然后重新apt-mirror下载32位deb包。再次执行apt-get update 的时候就没有错误啦。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deb-i386 http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</div><div class="line">deb-i386 http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universemultiverse</div><div class="line">deb-i386 http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universemultiverse</div><div class="line">deb-i386 http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line">deb-i386 http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universemultiverse</div></pre></td></tr></table></figure>
-<p><img src="file:///C:\Users\rolex\AppData\Local\Temp\msohtmlclip1\01\clip_image004.jpg" alt="img"></p>
 
       
     </div>
@@ -329,6 +324,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/10/26/jsp-abstraction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JSP基础知识摘录
+        
+      </div>
+    </a>
   
   
     <a href="/2016/10/18/javaSE-abstraction2/" id="article-nav-older" class="article-nav-link-wrap">
