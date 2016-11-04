@@ -32,7 +32,7 @@
 确认源支持
 
 以阿里源为例，登陆 http://mirrors.aliyun.com/ubuntu/di">
-<meta property="og:updated_time" content="2016-10-26T08:49:03.142Z">
+<meta property="og:updated_time" content="2016-11-04T12:16:09.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04 使用apt-mirror配置本地源">
 <meta name="twitter:description" content="安装apt-mirror1$sudo apt-get install apt-mirror
@@ -305,7 +305,7 @@
 <h3 id="使用本地Ubuntu-Source服务器"><a href="#使用本地Ubuntu-Source服务器" class="headerlink" title="使用本地Ubuntu Source服务器"></a><strong>使用本地Ubuntu Source服务器</strong></h3><ul>
 <li><strong>修改sources.list文件</strong></li>
 </ul>
-<p>现在，我们可以修改客户机/etc/apt/sources.list文件以使用本地Ubuntu Source服务器作为apt源。如果要将本机作为源服务器的话，将本机IP设置为静态IP，设置方法请查看<a href="http://blog.csdn.net/lv18092081172/article/details/52081859" target="_blank" rel="external">Ubuntu 16.04设置静态IP地址（NAT方式）</a></p>
+<p>现在，我们可以修改客户机/etc/apt/sources.list文件以使用本地Ubuntu Source服务器作为apt源。如果要将本机作为源服务器的话，将本机IP设置为静态IP，设置方法请查看<a href="http://blog.csdn.net/lv18092081172/article/details/52081859" target="_blank" rel="external">Ubuntu 16.04设置静态IP地址（NAT方式）</a>（如果存在不能上网问题，请仔细检查DNS服务器 /etc/resolv.conf）</p>
 <p>本地IP为192.168.198.131，因此将客户机sources.list文件设置如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://192.168.198.131/ubuntu/ xenial main restricted universe multiverse</div><div class="line">deb http://192.168.198.131/ubuntu/ xenial-security main restricted universe multiverse</div><div class="line">deb http://192.168.198.131/ubuntu/ xenial-updates main restricted universe multiverse</div><div class="line">deb http://192.168.198.131/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line">deb http://192.168.198.131/ubuntu/ xenial-proposed main restricted universe multiverse</div><div class="line">deb-src http://192.168.198.131/ubuntu/ xenial main restricted universe multiverse</div><div class="line">deb-src http://192.168.198.131/ubuntu/ xenial-security main restricted universe multiverse</div><div class="line">deb-src http://192.168.198.131/ubuntu/ xenial-updates main restricted universe multiverse</div><div class="line">deb-src http://192.168.198.131/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line">deb-src http://192.168.198.131/ubuntu/ xenial-proposed main restricted universe multiverse</div></pre></td></tr></table></figure>
 <ul>
