@@ -4,17 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: hexo | ROLEX&#39;s Blog</title>
+  <title>使用gparted 扩充vmware中linux硬盘容量 | ROLEX&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我只是一个想努力提高自己的程序渣……">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ROLEX's Blog">
-<meta property="og:url" content="https://rolex-cjj.github.io/tags/hexo/index.html">
+  <meta name="description" content="在vmware中使用linux，经常会遇到初始化硬盘容量不够的情况，所以学会扩容很重要。我使用gparted工具进行空间扩展。
+虚拟机设置首先选择虚拟机-&amp;gt;设置-&amp;gt;硬盘-&amp;gt;扩展，输入要扩大的容量。此时只是扩大了虚拟机的容量，还没有扩大分区容量。
+安装gparted进入linux，安装gparted工具。
+1sudo apt-get install gparted
+打开gparte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用gparted 扩充vmware中linux硬盘容量">
+<meta property="og:url" content="https://rolex-cjj.github.io/2016/11/15/vmware-extend-ubuntu-Hard-Disk/index.html">
 <meta property="og:site_name" content="ROLEX's Blog">
-<meta property="og:description" content="我只是一个想努力提高自己的程序渣……">
+<meta property="og:description" content="在vmware中使用linux，经常会遇到初始化硬盘容量不够的情况，所以学会扩容很重要。我使用gparted工具进行空间扩展。
+虚拟机设置首先选择虚拟机-&amp;gt;设置-&amp;gt;硬盘-&amp;gt;扩展，输入要扩大的容量。此时只是扩大了虚拟机的容量，还没有扩大分区容量。
+安装gparted进入linux，安装gparted工具。
+1sudo apt-get install gparted
+打开gparte">
+<meta property="og:updated_time" content="2016-11-15T05:40:42.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ROLEX's Blog">
-<meta name="twitter:description" content="我只是一个想努力提高自己的程序渣……">
+<meta name="twitter:title" content="使用gparted 扩充vmware中linux硬盘容量">
+<meta name="twitter:description" content="在vmware中使用linux，经常会遇到初始化硬盘容量不够的情况，所以学会扩容很重要。我使用gparted工具进行空间扩展。
+虚拟机设置首先选择虚拟机-&amp;gt;设置-&amp;gt;硬盘-&amp;gt;扩展，输入要扩大的容量。此时只是扩大了虚拟机的容量，还没有扩大分区容量。
+安装gparted进入linux，安装gparted工具。
+1sudo apt-get install gparted
+打开gparte">
   
     <link rel="alternative" href="/atom.xml" title="ROLEX&#39;s Blog" type="application/atom+xml">
   
@@ -185,84 +198,98 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-vmware-extend-ubuntu-Hard-Disk" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/02/how-to-synchronize-between-multiPCs/" class="archive-article-date">
-  	<time datetime="2016-09-02T05:56:42.000Z" itemprop="datePublished">Sep 2</time>
+    <div class="article-meta">
+      <a href="/2016/11/15/vmware-extend-ubuntu-Hard-Disk/" class="article-date">
+  	<time datetime="2016-11-15T03:14:20.000Z" itemprop="datePublished">2016-11-15</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/02/how-to-synchronize-between-multiPCs/">Github实现不同电脑下hexo博客的同步</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用gparted 扩充vmware中linux硬盘容量
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在vmware中使用linux，经常会遇到初始化硬盘容量不够的情况，所以学会扩容很重要。我使用gparted工具进行空间扩展。</p>
+<h3 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h3><p>首先选择虚拟机-&gt;设置-&gt;硬盘-&gt;扩展，输入要扩大的容量。此时只是扩大了虚拟机的容量，还没有扩大分区容量。</p>
+<h3 id="安装gparted"><a href="#安装gparted" class="headerlink" title="安装gparted"></a>安装gparted</h3><p>进入linux，安装gparted工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gparted</div></pre></td></tr></table></figure>
+<p>打开gparted，发现有一部分为unallocated，此时需要把unallocated加入到/dev/sda1中，才能使用扩展后的空间。</p>
+<p>也可以下载gparted 的iso文件，把iso镜像插入ubuntu启动光驱，启动虚拟机时进入vmware bios设置，选择从CD启动，然后进入gparted分区界面。</p>
+<p>详情可以查看以下链接。</p>
+<p><a href="http://www.linuxdiyf.com/linux/23533.html" target="_blank" rel="external">使用gparted工具扩充vmware UBUNTU虚拟机磁盘空间</a></p>
+<p><a href="http://blog.163.com/squall_smile/blog/static/60349840201362885726180/" target="_blank" rel="external">vmware虚拟机的ubuntu系统下不重新分区而扩大磁盘容量  </a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/31/use-of-bit-operation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">位运算的特殊用法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/30/how-to-build-my-own-blog/" class="archive-article-date">
-  	<time datetime="2016-08-30T02:50:35.000Z" itemprop="datePublished">Aug 30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/30/how-to-build-my-own-blog/">如何用Hexo搭建Github静态博客</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="vmware-extend-ubuntu-Hard-Disk" data-title="使用gparted 扩充vmware中linux硬盘容量" data-url="https://rolex-cjj.github.io/2016/11/15/vmware-extend-ubuntu-Hard-Disk/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -288,9 +315,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: '/'
