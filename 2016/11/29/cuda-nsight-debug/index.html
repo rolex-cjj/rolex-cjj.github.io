@@ -19,7 +19,7 @@
 1All CUDA devices are used for X11 and cannot be used while debugging
 查阅CUDA-GDB发现">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/cuda-debug.png">
-<meta property="og:updated_time" content="2016-12-16T11:34:31.860Z">
+<meta property="og:updated_time" content="2016-12-16T11:39:10.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下如何进行cuda debug">
 <meta name="twitter:description" content="编代码容易，debug难啊！debug cuda程序并没有想象中那么容易。占用了我好久时间才弄好，还是太年轻啊！
@@ -238,7 +238,7 @@
 <p>我的环境是ubuntu16.04， cuda_toolkit 8.0 ，显卡驱动为nvidia-367，debug提示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">All CUDA devices are used for X11 and cannot be used while debugging</div></pre></td></tr></table></figure>
 <p>查阅<a href="http://docs.nvidia.com/cuda/cuda-gdb/index.html#using-debugger" target="_blank" rel="external">CUDA-GDB</a>发现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Debugging a CUDA GPU involves pausing that GPU. When the graphics desktop manager is running on the same GPU, then debugging that GPU freezes the GUI and makes the desktop unusable</div></pre></td></tr></table></figure>
+<p>Debugging a CUDA GPU involves pausing that GPU. When the graphics desktop manager is running on the same GPU, then debugging that GPU freezes the GUI and makes the desktop unusable。</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a><strong>解决办法</strong></h4><p>如果不用图形界面的话，可以直接停止X11 server通过停止lightdm服务；</p>
 <p>如果要用图形界面的话，需要使用<strong>cuda software preeption</strong>.</p>
 <a id="more"></a>

@@ -19,12 +19,12 @@
 基础指令date、cal、bc(计算器)、
 文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg">
-<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/variable-operation.png">
-<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regular-ba.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/variable.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regex.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/wildcard.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png">
-<meta property="og:updated_time" content="2016-12-16T11:30:47.154Z">
+<meta property="og:updated_time" content="2016-12-16T12:06:34.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令">
 <meta name="twitter:description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
@@ -261,7 +261,7 @@
 <p>vim真是个好东西啊！一定要熟练运用，其Visual block(常用v, y, yy, d, dd, p)，多档案编辑(:n, :N, :files)，多窗口功能(:sp {filename}, [ctrl]+w+↓/↑/q, )，字符串搜索与替换(:n1,n2s/word1/word2/g)非常强大，常用命令还有1G, G, :set nu, :r filename, :! command。</p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg" alt=""></p>
 <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a><strong>变量</strong></h3><p>特殊符号(‘, “, \, $, 反单引号`, `指令`,  \$(指令))、export、env、declare、变量内容删除替代(#, ##, %, %%, /, // )</p>
-<p><img src="http://ohjnxvaxm.bkt.clouddn.com/variable-operation.png" alt=""></p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/variable.png" alt=""></p>
 <h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a><strong>shell</strong></h3><p>alias、history、source(.)、type</p>
 <p>可通过修改~/.bash_aliases或~/.bashrc文件添加别名，永久生效；history通过读取~/.bash_history文件获取以前下过的指令。history常配合!下达指令，!!, !n, !command。type可以找到执行指令是外部指令还是内建指令。</p>
 <h3 id="数据流重定向"><a href="#数据流重定向" class="headerlink" title="数据流重定向"></a><strong>数据流重定向</strong></h3><p>>、&gt;&gt;、 &lt;、 &lt;&lt;、2&gt;、2&gt;&gt;、;、&amp;&amp;、||、tee(双向重导向)、$?(前一个指令执行完毕的回传值，0为成功)</p>
@@ -281,7 +281,7 @@
 <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a><strong>正则表达式</strong></h3><p><strong>!</strong> 使用正则表达式要注意编码问题，统一LANG</p>
 <p><strong>基础版</strong></p>
 <p>^、$、[]、[^]、.、<em>(重复前一个0次或多次)、.\</em>(常用组合，0个或多个任意字符)、\{m,n\}(限定范围)、</p>
-<p><img src="http://ohjnxvaxm.bkt.clouddn.com/regular-ba.png" alt=""></p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/regex.png" alt=""></p>
 <p><strong>进阶版</strong></p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png" alt=""></p>
 <h3 id="正则表达式与通配符"><a href="#正则表达式与通配符" class="headerlink" title="正则表达式与通配符"></a><strong>正则表达式与通配符</strong></h3><p>通配符 (wildcard) 代表的是 <strong>bash</strong> 操作接口的一个功能， 但正则表示法则是一种<strong>字符串处理</strong>的表示方式。在文本过滤工具里，都是用正则表达式，比如像awk，sed，等，是针对<strong>文件内容</strong>的；而通配符多用在<strong>文件名</strong>上，比如查找find，ls，cp，等等。</p>
@@ -293,7 +293,6 @@
 <h3 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a><strong>系统资源查看</strong></h3><p>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、</p>
 <h4 id="free-内存使用情况-、lsb-release-a-显示操作系统版本信息，Linux-Standard-Base缩写lsb，意为linux标准规范库-、uname-a-显示当前操作系统与内核信息-、netstat-跟踪网络-、-proc-、"><a href="#free-内存使用情况-、lsb-release-a-显示操作系统版本信息，Linux-Standard-Base缩写lsb，意为linux标准规范库-、uname-a-显示当前操作系统与内核信息-、netstat-跟踪网络-、-proc-、" class="headerlink" title="free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、"></a>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、</h4><h3 id="源码编译软件安装"><a href="#源码编译软件安装" class="headerlink" title="源码编译软件安装"></a><strong>源码编译软件安装</strong></h3><p>./configure、make、makefile、make check、make install、gcc(-o、-L/path、-I/usr/include)、ldd(程序的动态函式库解析)、dpkg、rpm(-ivh、-qa、-Va)、</p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png" alt=""></p>
-<p>#### </p>
 
       
     </div>
