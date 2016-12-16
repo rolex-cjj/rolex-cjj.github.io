@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>linux 常用命令 | Lorris&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
+骐宝宝爱你~~
+基础指令date、cal、bc(计算器)、
+文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 常用命令">
+<meta property="og:url" content="https://rolex-cjj.github.io/2016/11/16/linux-common-commands/index.html">
+<meta property="og:site_name" content="Lorris's Blog">
+<meta property="og:description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
+骐宝宝爱你~~
+基础指令date、cal、bc(计算器)、
+文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/variable-operation.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regular-ba.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/wildcard.png">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png">
+<meta property="og:updated_time" content="2016-12-15T08:49:32.548Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 常用命令">
+<meta name="twitter:description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
+骐宝宝爱你~~
+基础指令date、cal、bc(计算器)、
+文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+<meta name="twitter:image" content="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Lorris&#39;s Blog" type="application/atom+xml">
+  
+  
+	
+      <link rel="icon" href="/favicon.png">
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			
+ 					<img lazy-src="https://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar show">
+ 				
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lorris</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不忘初心</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://nextinnovationucas.github.io/">Qi&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Lorris</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="nullhttps://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lorris</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不忘初心</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-linux-common-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/16/linux-common-commands/" class="article-date">
+  	<time datetime="2016-11-16T03:13:00.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux 常用命令
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。</p>
+<p>骐宝宝爱你~~</p>
+<h4 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h4><p>date、cal、bc(计算器)、</p>
+<h4 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h4><p>touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;_&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)、</p>
+<h4 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h4><p>ln(常用ln -s 建立软链接，硬链接不常用)</p>
+<a id="more"></a>
+<h4 id="文件命令查询"><a href="#文件命令查询" class="headerlink" title="文件命令查询"></a>文件命令查询</h4><p>locate、which、whereis、find</p>
+<p>locate是根据数据库/var/lib/mlocate/查找文件，不用读取硬盘，速度快。which和whereis两者均根据执行文件的路径变量$PATH搜索命令的位置。对于shell内部命令如cd，是搜不到的。只能搜外部命令。whereis除了可以列出命令路径，还可以列出命令帮助文档的路径。find读取硬盘查找，功能强大，但是速度慢，不常用。</p>
+<h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><p>man、–help、help、info、/usr/share/doc</p>
+<p>man常用命令有man man , man -f man(=whatis), man -k man(=apropos)。help只能用来查找shell内部命令。info命令行模式的网页显示数据，内容较多，不常用。判断是否为shell内部命令可先用whereis查看，不能列出命令位置的为shell内部命令。/usr/share/doc下的数据主要是以软件包为主的说明文档。</p>
+<h4 id="关机重启"><a href="#关机重启" class="headerlink" title="关机重启"></a>关机重启</h4><p>shutdown(shutdown -h /-r now)、halt、poweroff、init 0、reboot、init 6</p>
+<h4 id="改变文件属性和权限"><a href="#改变文件属性和权限" class="headerlink" title="改变文件属性和权限"></a>改变文件属性和权限</h4><p>chgrp、chown、chmod</p>
+<h4 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h4><p>cat(一次性显示)、tac、more(向下翻页)、less(可上下翻页)、head(head -n number file)、tail、od(非纯文本文件)</p>
+<h4 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a>压缩命令</h4><p>zip/unzip、gzip/gunzip(=gzip -d)、bzip2/bunzip2(bzip2 -d)、tar(-c -v -f  -t -x -j -z)</p>
+<p>zip常用命令zip test.zip test和zip -r test.zip test(压缩目录)，压缩后源文件存在。gzip常用gzip test和gzip -r test，gzip -r test可以压缩目录及子目录下的文件，不能压缩目录本身，压缩后源文件消失。bzip2常用bzip test(不保留源文件)和bzip -k test(保留源文件)，不能压缩目录。tar为打包命令，tar -cvf test.tar test(c打包，v显示打包过程，f指定打包文件名)，tar -xvf test.tar(x解打包)，tar -zcvf  test.tar.gz test，tar -jcvf  test.tar.bz2 test(源文件部分可以写以空格分割的多个文件)，tar -jxvf  test.tar.bz2 -C /tmp(解压到指定文件夹)，还可以实现解打包单一文件。</p>
+<h4 id="磁盘目录容量"><a href="#磁盘目录容量" class="headerlink" title="磁盘目录容量"></a>磁盘目录容量</h4><p>df(df - h)、du</p>
+<h4 id="磁盘分区、格式化、检验、挂载"><a href="#磁盘分区、格式化、检验、挂载" class="headerlink" title="磁盘分区、格式化、检验、挂载"></a>磁盘分区、格式化、检验、挂载</h4><p>fdisk、parted、mkfs、fsck、mount、unmount、开机挂载(/etc/fstab文件)</p>
+<h4 id="备份命令"><a href="#备份命令" class="headerlink" title="备份命令"></a>备份命令</h4><p>dump、dd</p>
+<h4 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h4><p>nano、vi、vim</p>
+<p>vim真是个好东西啊！一定要熟练运用，其Visual block(常用v, y, yy, d, dd, p)，多档案编辑(:n, :N, :files)，多窗口功能(:sp {filename}, [ctrl]+w+↓/↑/q, )，字符串搜索与替换(:n1,n2s/word1/word2/g)非常强大，常用命令还有1G, G, :set nu, :r filename, :! command。</p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg" alt=""></p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>特殊符号(‘, “, \, $, 反单引号`, `指令`,  \$(指令))、export、env、declare、变量内容删除替代(#, ##, %, %%, /, // )</p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/variable-operation.png" alt=""></p>
+<h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><p>alias、history、source(.)、type</p>
+<p>可通过修改~/.bash_aliases或~/.bashrc文件添加别名，永久生效；history通过读取~/.bash_history文件获取以前下过的指令。history常配合!下达指令，!!, !n, !command。type可以找到执行指令是外部指令还是内建指令。</p>
+<h4 id="数据流重定向"><a href="#数据流重定向" class="headerlink" title="数据流重定向"></a>数据流重定向</h4><p>>、&gt;&gt;、 &lt;、 &lt;&lt;、2&gt;、2&gt;&gt;、;、&amp;&amp;、||、tee(双向重导向)、$?(前一个指令执行完毕的回传值，0为成功)</p>
+<h4 id="管线命令"><a href="#管线命令" class="headerlink" title="管线命令"></a>管线命令</h4><p><strong>撷取命令</strong></p>
+<p>cut(同一行里面的数据进行分解)、grep(取出有关键字的行grep -n)、sed、awk(处理每一行字段内的数据 )、</p>
+<p>awk常用用法：awk ‘condition{function}…’ 如awk ‘{print \$1 “\t” \$3}’，awk关键字有NF、NR、FS、BEGIN、END</p>
+<p><strong>排序命令</strong></p>
+<p>sort、uniq、wc、</p>
+<p><strong>双向重导向</strong></p>
+<p>tee</p>
+<p><strong>字符转换</strong></p>
+<p>tr、col、join(两文档以数据相关性贴在一起)、paste(将两行贴在一起)、split(大档案分割为小档案)</p>
+<p><strong>减号-</strong></p>
+<p>在管线命令当中，常常会使用前一个指令的stdout 作为这次指令的stdin，该stdin和stdout 可以用减号 “-“ 来替代。</p>
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><p>printf(%ns、%ni)</p>
+<h4 id="档案对比"><a href="#档案对比" class="headerlink" title="档案对比"></a>档案对比</h4><p>diff(以行为单位，新旧档案纯文本对比)、cmp(以字节为单位，可以比较二进制文件)、patch(档案补丁)</p>
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p><strong>!</strong> 使用正则表达式要注意编码问题，统一LANG</p>
+<p><strong>基础版</strong></p>
+<p>^、$、[]、[^]、.、<em>(重复前一个0次或多次)、.\</em>(常用组合，0个或多个任意字符)、\{m,n\}(限定范围)、</p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/regular-ba.png" alt=""></p>
+<p><strong>进阶版</strong></p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png" alt=""></p>
+<h4 id="正则表达式与通配符"><a href="#正则表达式与通配符" class="headerlink" title="正则表达式与通配符"></a>正则表达式与通配符</h4><p>通配符 (wildcard) 代表的是 <strong>bash</strong> 操作接口的一个功能， 但正则表示法则是一种<strong>字符串处理</strong>的表示方式。在文本过滤工具里，都是用正则表达式，比如像awk，sed，等，是针对<strong>文件内容</strong>的；而通配符多用在<strong>文件名</strong>上，比如查找find，ls，cp，等等。</p>
+<p>通配符中*代表的是 0 ~ 无限多个字符，正则表达式中表示重复前一个RE字符0到多次，不能单独使用。</p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/wildcard.png" alt=""></p>
+<h4 id="shell-script"><a href="#shell-script" class="headerlink" title="shell script"></a>shell script</h4><p>source(=.在父程序bash中执行)、sh script(在子程序bash中执行)、test(配合$?、&amp;&amp;、||使用进行文件测试)、[]判断、#!/bin/bash、shift(参数偏移)、if…then…fi、case…in…esac、while do done、until do done、for do done、sh -x script.sh(debug)、</p>
+<h4 id="工作管理"><a href="#工作管理" class="headerlink" title="工作管理"></a>工作管理</h4><p>&amp;(将工作丢到背景中去执行)、[ctrl]-z(将目前工作丢到背景中暂停)、jobs(观察目前背景工作状态)、fg(将背景工作拿到前景来处理)、bg(让工作在背景下的状态变成运作中)、kill(管理背景当中的工作)、killall、%(后面跟job number)、nohup+&amp;(让在背景的工作在你注销后还能够继续执行)、crontab(例行性工作)</p>
+<h4 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h4><p>ps(静态 -l查看自己bash进程状态、aux查看系统所有进程数据)、top(动态查看进程变化)、</p>
+<h4 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a>系统资源查看</h4><p>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、</p>
+<h4 id="源码编译软件安装"><a href="#源码编译软件安装" class="headerlink" title="源码编译软件安装"></a>源码编译软件安装</h4><p>./configure、make、makefile、make check、make install、gcc(-o、-L/path、-I/usr/include)、ldd(程序的动态函式库解析)、dpkg、rpm(-ivh、-qa、-Va)、</p>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png" alt=""></p>
+<p>#### </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/22/UEFI-BIOS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          UEFI和BIOS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/15/vmware-extend-ubuntu-Hard-Disk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用gparted 扩充vmware中linux硬盘容量</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="linux-common-commands" data-title="linux 常用命令" data-url="https://rolex-cjj.github.io/2016/11/16/linux-common-commands/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lorris
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/rolex-cjj/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: '/'
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+ 	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">'+'</sc'+'ript>');
+ 	})();
+</script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script>
+	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">'+'</sc'+'ript>');
+	})();
+</script>
+
+
+  </div>
+</body>
+</html>

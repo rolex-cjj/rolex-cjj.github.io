@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>git常用命令 | Lorris&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git init 创建本地仓库
+git add file 工作区提交到暂存区
+git commit -m “instruction” 提交到本地仓库
+git status  查看是否有文件被修改过
+git diff  file 工作区与暂存区的比较
+git diff –cached 暂存区与本地库比较
+git diff HEAD file 工作区域本地库比较
+git log 查看提交历史，以便确定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="https://rolex-cjj.github.io/2016/12/16/git-common-command/index.html">
+<meta property="og:site_name" content="Lorris's Blog">
+<meta property="og:description" content="git init 创建本地仓库
+git add file 工作区提交到暂存区
+git commit -m “instruction” 提交到本地仓库
+git status  查看是否有文件被修改过
+git diff  file 工作区与暂存区的比较
+git diff –cached 暂存区与本地库比较
+git diff HEAD file 工作区域本地库比较
+git log 查看提交历史，以便确定">
+<meta property="og:updated_time" content="2016-12-16T11:17:03.393Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用命令">
+<meta name="twitter:description" content="git init 创建本地仓库
+git add file 工作区提交到暂存区
+git commit -m “instruction” 提交到本地仓库
+git status  查看是否有文件被修改过
+git diff  file 工作区与暂存区的比较
+git diff –cached 暂存区与本地库比较
+git diff HEAD file 工作区域本地库比较
+git log 查看提交历史，以便确定">
+  
+    <link rel="alternative" href="/atom.xml" title="Lorris&#39;s Blog" type="application/atom+xml">
+  
+  
+	
+      <link rel="icon" href="/favicon.png">
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			
+ 					<img lazy-src="https://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar show">
+ 				
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lorris</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不忘初心</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://nextinnovationucas.github.io/">Qi&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Lorris</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="nullhttps://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lorris</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不忘初心</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-git-common-command" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/16/git-common-command/" class="article-date">
+  	<time datetime="2016-12-16T08:18:58.000Z" itemprop="datePublished">2016-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git常用命令
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git <strong>init</strong> 创建本地仓库</p>
+<p>git <strong>add</strong> file 工作区提交到暂存区</p>
+<p>git <strong>commit</strong> -m “instruction” 提交到本地仓库</p>
+<p>git <strong>status</strong>  查看是否有文件被修改过</p>
+<p>git <strong>diff</strong>  file 工作区与暂存区的比较</p>
+<p>git diff –cached 暂存区与本地库比较</p>
+<p>git diff HEAD file 工作区域本地库比较</p>
+<p>git <strong>log</strong> 查看提交历史，以便确定要回退到哪个版本</p>
+<p>git log –graph 可以看到分支合并图</p>
+<p><strong>HEAD</strong> 当前版本 HEAD^ 上一个版本 HEAD~100  上一百个版本</p>
+<p>git <strong>reset</strong> –hard commit-id 回退到历史版本</p>
+<p>git reset HEAD file 把暂存区的修改回退到工作区</p>
+<a id="more"></a>
+<p>git <strong>reflog</strong> 查看命令历史，以便确定要回到未来的哪个版本</p>
+<p>git <strong>checkout</strong> –file 用版本库或暂存区版本替换工作区版本</p>
+<p>git checkout 切换分支</p>
+<p>git checkout -b branch-name 创建并切换分支</p>
+<p>git checkout -b branch-name origin/branch-name 在本地创建和远程分支对应的分支</p>
+<p>git <strong>rm</strong> file 删除文件</p>
+<p>git <strong>remote </strong> add origin-name repository-url 本地关联远程库</p>
+<p>git <strong>push</strong> [-u] origin branch-name 把本地分支的最新修改推送至远程仓库</p>
+<p>git <strong>clone</strong> repository-url 克隆一个本地仓库</p>
+<p>git <strong>branch</strong> branch-name 创建分支</p>
+<p>git branch 查看当前分支</p>
+<p>git branch -D branch-name 丢弃一个没有被合并过的分支，强行删除 </p>
+<p>git branch –set-upstream branch-name origin/branch-name 建立本地分支和远程分支的关联</p>
+<p>git branch -d branch-name 删除分支</p>
+<p>git <strong>merge</strong> [–no-ff]  branch-name 合并分支到当前分支，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并</p>
+<p>git <strong>stash</strong> 把当前工作现场“储藏”起来</p>
+<p>git stash apply 恢复，但是并不删除stash内容</p>
+<p>git stash pop 恢复同时删除stash内容</p>
+<p>git stash list 查看stash</p>
+<p>git <strong>remote</strong> -v 查看远程库信息，默认远程库名称为origin</p>
+<p>git <strong>pull</strong> 抓取远程的新提交 </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/15/compiled-interpreted-script-language/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编译性语言、解释性语言和脚本语言</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="git-common-command" data-title="git常用命令" data-url="https://rolex-cjj.github.io/2016/12/16/git-common-command/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lorris
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/rolex-cjj/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: '/'
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+ 	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">'+'</sc'+'ript>');
+ 	})();
+</script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script>
+	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">'+'</sc'+'ript>');
+	})();
+</script>
+
+
+  </div>
+</body>
+</html>

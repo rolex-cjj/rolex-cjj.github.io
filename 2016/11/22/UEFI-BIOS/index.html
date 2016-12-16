@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>UEFI和BIOS | Lorris&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UEFI，全称Unified Extensible Firmware Interface，即“统一的可扩展固件接口”，是一种详细描述全新类型接口的标准，是适用于电脑的标准固件接口，旨在代替BIOS（基本输入/输出系统）。作为传统BIOS（Basic Input/Output System）的继任者，UEFI拥有前辈所不具备的诸多功能，比如图形化界面、多种多样的操作方式、允许植入硬件驱动等等。这些特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UEFI和BIOS">
+<meta property="og:url" content="https://rolex-cjj.github.io/2016/11/22/UEFI-BIOS/index.html">
+<meta property="og:site_name" content="Lorris's Blog">
+<meta property="og:description" content="UEFI，全称Unified Extensible Firmware Interface，即“统一的可扩展固件接口”，是一种详细描述全新类型接口的标准，是适用于电脑的标准固件接口，旨在代替BIOS（基本输入/输出系统）。作为传统BIOS（Basic Input/Output System）的继任者，UEFI拥有前辈所不具备的诸多功能，比如图形化界面、多种多样的操作方式、允许植入硬件驱动等等。这些特">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/bios-running.png">
+<meta property="og:updated_time" content="2016-12-02T06:50:53.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UEFI和BIOS">
+<meta name="twitter:description" content="UEFI，全称Unified Extensible Firmware Interface，即“统一的可扩展固件接口”，是一种详细描述全新类型接口的标准，是适用于电脑的标准固件接口，旨在代替BIOS（基本输入/输出系统）。作为传统BIOS（Basic Input/Output System）的继任者，UEFI拥有前辈所不具备的诸多功能，比如图形化界面、多种多样的操作方式、允许植入硬件驱动等等。这些特">
+<meta name="twitter:image" content="http://ohjnxvaxm.bkt.clouddn.com/bios-running.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Lorris&#39;s Blog" type="application/atom+xml">
+  
+  
+	
+      <link rel="icon" href="/favicon.png">
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			
+ 					<img lazy-src="https://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar show">
+ 				
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lorris</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不忘初心</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://nextinnovationucas.github.io/">Qi&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Lorris</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="nullhttps://ohjnxvaxm.bkt.clouddn.com/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lorris</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不忘初心</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-UEFI-BIOS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/UEFI-BIOS/" class="article-date">
+  	<time datetime="2016-11-22T13:11:31.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UEFI和BIOS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BIOS/">BIOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UEFI/">UEFI</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UEFI，全称Unified Extensible Firmware Interface，即“统一的可扩展固件接口”，是一种详细描述全新类型接口的标准，是适用于电脑的标准固件接口，旨在代替BIOS（基本输入/输出系统）。作为传统BIOS（Basic Input/Output System）的继任者，UEFI拥有前辈所不具备的诸多功能，比如图形化界面、多种多样的操作方式、允许植入硬件驱动等等。这些特性让UEFI相比于传统BIOS更加易用、更加多功能、更加方便。而Windows 8在发布之初就对外宣布全面支持UEFI，这也促使了众多主板厂商纷纷转投UEFI，并将此作为主板的标准配置之一。</p>
+<p>UEFI抛去了传统BIOS需要长时间自检的问题，让硬件初始化以及引导系统变得简洁快速。换种方式说，UEFI已经把电脑的BIOS变得不像是BIOS，而是一个小型固化在主板上的操作系统一样，加上UEFI本身的开发语言已经从汇编转变成C语言，高级语言的加入让厂商深度开发UEFI变为可能。</p>
+<a id="more"></a>
+<p><img src="http://ohjnxvaxm.bkt.clouddn.com/bios-running.png" alt=""></p>
+<h4 id="UEFI的特点"><a href="#UEFI的特点" class="headerlink" title="UEFI的特点"></a><strong>UEFI的特点</strong></h4><ul>
+<li>通过保护预启动或预引导进程，抵御bootkit攻击，从而提高安全性。</li>
+<li>缩短了启动时间和从休眠状态恢复的时间。</li>
+<li>支持容量超过2.2 TB的驱动器。</li>
+<li>支持64位的现代固件设备驱动程序，系统在启动过程中可以使用它们来对超过172亿GB的内存进行寻址。</li>
+<li>UEFI硬件可与BIOS结合使用。</li>
+</ul>
+<h4 id="BIOS和UEFI的区别"><a href="#BIOS和UEFI的区别" class="headerlink" title="BIOS和UEFI的区别"></a><strong>BIOS和UEFI的区别</strong></h4><ul>
+<li>首先，UEFI已具备文件系统的支持，它能够直接读取FAT分区中的文件，直白点说就是把硬盘上的数据以文件的形式呈现给用户。Fat32、NTFS都是常见的文件系统类型。</li>
+<li>其次，可开发出直接在UEFI下运行的应用程序，这类程序文件通常以efi结尾。既然UEFI可以直接识别FAT分区中的文件，又有可直接在其中运行的应用程序。那么完全可以将Windows安装程序做成efi类型应用程序，然后把它放到任意fat分区中直接运行即可，如此一来安装Windows操作系统这件过去看上去稍微有点复杂的事情突然就变非常简单了，就像在Windows下打开QQ一样简单。而事实上，也就是这么一回事。</li>
+<li>最后，要知道这些都是BIOS做不到的。因为BIOS下启动操作系统之前，必须从硬盘上指定扇区读取系统启动代码（包含在主引导记录中），然后从活动分区中引导启动操作系统。对扇区的操作远比不上对分区中文件的操作更直观更简单，所以在BIOS下引导安装Windows操作系统，我们不得不使用一些工具对设备进行配置以达到启动要求。而在UEFI下，这些统统都不需要，不再需要主引导记录，不再需要活动分区，不需要任何工具，只要复制安装文件到一个FAT32（主）分区/U盘中，然后从这个分区/U盘启动，安装Windows就是这么简单。</li>
+</ul>
+<h4 id="UEFI启动对比BIOS启动的优势："><a href="#UEFI启动对比BIOS启动的优势：" class="headerlink" title="UEFI启动对比BIOS启动的优势："></a><strong>UEFI启动对比BIOS启动的优势</strong>：</h4><p>第一：安全性更强<br>UEFI启动需要一个独立的分区，它将系统启动文件和操作系统本身隔离，可以更好的保护系统的启动。即使系统启动出错需要重新配置，我们只要简单对启动分区重新进行配置即可。而且，对于win8系统，它利用<strong>UEFI安全启动</strong>以及固件中存储的证书与平台固件之间创建一个信任源，可以确保在加载操作系统之前，近能够执行已签名并获得认证的“已知安全”代码和启动加载程序，可以防止用户在根路径中执行恶意代码。<br>第二：启动配置更灵活<br>EFI启动和GRUB启动类似，在启动的时候可以调用EFIShell，在此可以加载指定硬件驱动，选择启动文件。比如默认启动失败，在EFIShell加载U盘上的启动文件继续启动系统。<br>第三：支持容量更大<br>传统的BIOS启动由于MBR的限制，默认是无法引导超过2.1TB以上的硬盘的。随着硬盘价格的不断走低，2.1TB以上的硬盘会逐渐普及，因此UEFI启动也是今后主流的启动方式。</p>
+<h4 id="Secure-Boot是如何工作的"><a href="#Secure-Boot是如何工作的" class="headerlink" title="Secure Boot是如何工作的"></a><strong>Secure Boot是如何工作的</strong></h4><p>如今新的Windows PC都是带有UEFI固件的，而且也开启了Secure Boot功能。默认情况下，UEFI固件只会加载那些<strong>被签名</strong>的引导程序。这个功能被称为“Secure Boot” 或“Trusted Boot”。在缺少Secure Boot功能的传统PC机上，恶意的后门程序可以加载自身，进而摇身一变伪装成一个引导程序。这样的话，BIOS就会在启动的时候加载后门程序，这样它就可以躲过操作系统，把自己隐藏得很深。Secure Boot可以拒绝引导那些未被<strong>UEFI秘钥签名</strong>的操作系统，换句话说，只有微软认证的软件才可以被引导。</p>
+<p>微软授权给PC厂商允许用户关闭Secure Boot功能，所以你还是可以<strong>关闭</strong>它的，或者在UEFI<strong>增加自定义的公钥</strong>绕开这个限制。</p>
+<h4 id="安装Linux的几种方法"><a href="#安装Linux的几种方法" class="headerlink" title="安装Linux的几种方法"></a><strong>安装Linux的几种方法</strong></h4><p>在支持Secure Boot的电脑上，你可以用以下几种方法来安装Linux：</p>
+<ul>
+<li><strong>选择一个支持Secure Boot的Linux版本：</strong>较新的Ubuntu，从12.04.2 LTS和12.10开始，都可以正常被引导和安装在有Secure Boot功能的PC机中。这是因为Ubuntu的第一阶段EFI引导程序是被微软签名认证过的。然而，有Ubuntu开发者指出，Ubuntu的引导程序并没有用这个key进行签名，而是使用了微软“推荐”的一个简单的key。这意味着Ubuntu可能不能在所有的UEFI机器上运行，用户可能还是得把Secure Boot关掉。</li>
+<li><strong>关闭Secure Boot：</strong>Secure Boot是可以被关闭的，代价是这会丧失认证功能，使得你的电脑可以引导任何程序，这和传统的BIOS PC机没有任何区别。如果你想安装那些本身不支持Secure Boot的Windows版本，比如Windows 7，那么你也得关闭它。</li>
+<li><strong>往UEFI固件增加一个公钥：</strong>某些Linux发型版可能会用它们自己的秘钥对引导程序进行签名，但是这些对应的公钥并没有加入到你的UEFI固件中。这种情况现在来说并不常见。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/29/cuda-nsight-debug/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          linux下如何进行cuda debug
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/16/linux-common-commands/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux 常用命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="UEFI-BIOS" data-title="UEFI和BIOS" data-url="https://rolex-cjj.github.io/2016/11/22/UEFI-BIOS/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lorris
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/rolex-cjj/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: '/'
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+ 	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">'+'</sc'+'ript>');
+ 	})();
+</script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script>
+	(function(){
+ 		document.write('<scr'+'ipt type="text/javascript" src="'+document.location.protocol+'//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">'+'</sc'+'ript>');
+	})();
+</script>
+
+
+  </div>
+</body>
+</html>
