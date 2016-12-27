@@ -9,7 +9,7 @@
   <meta name="description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
 骐宝宝爱你~~
 基础指令date、cal、bc(计算器)、
-文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+文件与目录管理touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝scp local_file remote_username@remote_ip:remotefile)、mv(相同目录下使用为重命">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 常用命令">
 <meta property="og:url" content="https://rolex-cjj.github.io/2016/12/02/linux-common-commands/index.html">
@@ -17,20 +17,20 @@
 <meta property="og:description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
 骐宝宝爱你~~
 基础指令date、cal、bc(计算器)、
-文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+文件与目录管理touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝scp local_file remote_username@remote_ip:remotefile)、mv(相同目录下使用为重命">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/variable.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regex.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/wildcard.png">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png">
-<meta property="og:updated_time" content="2016-12-16T12:17:36.123Z">
+<meta property="og:updated_time" content="2016-12-23T08:14:31.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 常用命令">
 <meta name="twitter:description" content="学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。
 骐宝宝爱你~~
 基础指令date、cal、bc(计算器)、
-文件与目录管理touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&amp;gt;_&amp;lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、wh">
+文件与目录管理touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝scp local_file remote_username@remote_ip:remotefile)、mv(相同目录下使用为重命">
 <meta name="twitter:image" content="http://ohjnxvaxm.bkt.clouddn.com/vim-commands.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Lorris&#39;s Blog" type="application/atom+xml">
@@ -242,7 +242,7 @@
         <p>学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。</p>
 <p>骐宝宝爱你~~</p>
 <h3 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a><strong>基础指令</strong></h3><p>date、cal、bc(计算器)、</p>
-<h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a><strong>文件与目录管理</strong></h3><p>touch、mkdir、cp、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;_&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)、</p>
+<h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a><strong>文件与目录管理</strong></h3><p>touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝scp local_file remote_username@remote_ip:remote<em>file)、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;</em>&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)、</p>
 <h3 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a><strong>链接命令</strong></h3><p>ln(常用ln -s 建立软链接，硬链接不常用)</p>
 <a id="more"></a>
 <h3 id="文件命令查询"><a href="#文件命令查询" class="headerlink" title="文件命令查询"></a><strong>文件命令查询</strong></h3><p>locate、which、whereis、find</p>
@@ -251,7 +251,7 @@
 <p>man常用命令有man man , man -f man(=whatis), man -k man(=apropos)。help只能用来查找shell内部命令。info命令行模式的网页显示数据，内容较多，不常用。判断是否为shell内部命令可先用whereis查看，不能列出命令位置的为shell内部命令。/usr/share/doc下的数据主要是以软件包为主的说明文档。</p>
 <h3 id="关机重启"><a href="#关机重启" class="headerlink" title="关机重启"></a><strong>关机重启</strong></h3><p>shutdown(shutdown -h /-r now)、halt、poweroff、init 0、reboot、init 6</p>
 <h3 id="改变文件属性和权限"><a href="#改变文件属性和权限" class="headerlink" title="改变文件属性和权限"></a><strong>改变文件属性和权限</strong></h3><p>chgrp、chown、chmod</p>
-<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a><strong>查看文件内容</strong></h3><p>cat(一次性显示)、tac、more(向下翻页)、less(可上下翻页)、head(head -n number file)、tail、od(非纯文本文件)</p>
+<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a><strong>查看文件内容</strong></h3><p>cat(一次性显示，连接文件)、tac、more(向下翻页)、less(可上下翻页)、head(head -n number file)、tail、od(非纯文本文件)</p>
 <h3 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a><strong>压缩命令</strong></h3><p>zip/unzip、gzip/gunzip(=gzip -d)、bzip2/bunzip2(bzip2 -d)、tar(-c -v -f  -t -x -j -z)</p>
 <p>zip常用命令zip test.zip test和zip -r test.zip test(压缩目录)，压缩后源文件存在。gzip常用gzip test和gzip -r test，gzip -r test可以压缩目录及子目录下的文件，不能压缩目录本身，压缩后源文件消失。bzip2常用bzip test(不保留源文件)和bzip -k test(保留源文件)，不能压缩目录。tar为打包命令，tar -cvf test.tar test(c打包，v显示打包过程，f指定打包文件名)，tar -xvf test.tar(x解打包)，tar -zcvf  test.tar.gz test，tar -jcvf  test.tar.bz2 test(源文件部分可以写以空格分割的多个文件)，tar -jxvf  test.tar.bz2 -C /tmp(解压到指定文件夹)，还可以实现解打包单一文件。</p>
 <h3 id="磁盘目录容量"><a href="#磁盘目录容量" class="headerlink" title="磁盘目录容量"></a><strong>磁盘目录容量</strong></h3><p>df(df - h)、du</p>
@@ -266,14 +266,14 @@
 <p>可通过修改~/.bash_aliases或~/.bashrc文件添加别名，永久生效；history通过读取~/.bash_history文件获取以前下过的指令。history常配合!下达指令，!!, !n, !command。type可以找到执行指令是外部指令还是内建指令。</p>
 <h3 id="数据流重定向"><a href="#数据流重定向" class="headerlink" title="数据流重定向"></a><strong>数据流重定向</strong></h3><p>>、&gt;&gt;、 &lt;、 &lt;&lt;、2&gt;、2&gt;&gt;、;、&amp;&amp;、||、tee(双向重导向)、$?(前一个指令执行完毕的回传值，0为成功)</p>
 <h3 id="管线命令"><a href="#管线命令" class="headerlink" title="管线命令"></a><strong>管线命令</strong></h3><p><strong>撷取命令</strong></p>
-<p>cut(同一行里面的数据进行分解)、grep(取出有关键字的行grep -n)、sed、awk(处理每一行字段内的数据 )、</p>
+<p>cut(同一行里面的数据进行分解-d、-f)、grep(取出有关键字的行grep -n)、sed(-n p)、awk(处理每一行字段内的数据 )、</p>
 <p>awk常用用法：awk ‘condition{function}…’ 如awk ‘{print \$1 “\t” \$3}’，awk关键字有NF、NR、FS、BEGIN、END</p>
 <p><strong>排序命令</strong></p>
-<p>sort、uniq、wc、</p>
+<p>sort、uniq(-c 进行计数，计数时要先进行sort)、wc(列出文本中有多少行，多少字符)</p>
 <p><strong>双向重导向</strong></p>
 <p>tee</p>
 <p><strong>字符转换</strong></p>
-<p>tr、col、join(两文档以数据相关性贴在一起)、paste(将两行贴在一起)、split(大档案分割为小档案)</p>
+<p>tr(删除文字或文字替换-d、-s)、col、join(两文档以数据相关性贴在一起)、paste(将两行贴在一起)、split(大档案分割为小档案)</p>
 <p><strong>减号-</strong></p>
 <p>在管线命令当中，常常会使用前一个指令的stdout 作为这次指令的stdin，该stdin和stdout 可以用减号 “-“ 来替代。</p>
 <h3 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a><strong>格式化输出</strong></h3><p>printf(%ns、%ni)</p>
@@ -282,7 +282,8 @@
 <p><strong>基础版</strong></p>
 <p>^、$、[]、[^]、.、<em>(重复前一个0次或多次)、.\</em>(常用组合，0个或多个任意字符)、\{m,n\}(限定范围)、</p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/regex.png" alt=""></p>
-<p><strong>进阶版</strong></p>
+<p><strong>扩展版</strong></p>
+<p>grep默认支持基础正则表达式，使用扩展版时使用grep -E或者egrep</p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/regular-advance.png" alt=""></p>
 <h3 id="正则表达式与通配符"><a href="#正则表达式与通配符" class="headerlink" title="正则表达式与通配符"></a><strong>正则表达式与通配符</strong></h3><p>通配符 (wildcard) 代表的是 <strong>bash</strong> 操作接口的一个功能， 但正则表示法则是一种<strong>字符串处理</strong>的表示方式。在文本过滤工具里，都是用正则表达式，比如像awk，sed，等，是针对<strong>文件内容</strong>的；而通配符多用在<strong>文件名</strong>上，比如查找find，ls，cp，等等。</p>
 <p>通配符中*代表的是 0 ~ 无限多个字符，正则表达式中表示重复前一个RE字符0到多次，不能单独使用。</p>
@@ -290,8 +291,8 @@
 <h3 id="shell-script"><a href="#shell-script" class="headerlink" title="shell script"></a><strong>shell script</strong></h3><p>source(=.在父程序bash中执行)、sh script(在子程序bash中执行)、test(配合$?、&amp;&amp;、||使用进行文件测试)、[]判断、#!/bin/bash、shift(参数偏移)、if…then…fi、case…in…esac、while do done、until do done、for do done、sh -x script.sh(debug)、</p>
 <h3 id="工作管理"><a href="#工作管理" class="headerlink" title="工作管理"></a><strong>工作管理</strong></h3><p>&amp;(将工作丢到背景中去执行)、[ctrl]-z(将目前工作丢到背景中暂停)、jobs(观察目前背景工作状态)、fg(将背景工作拿到前景来处理)、bg(让工作在背景下的状态变成运作中)、kill(管理背景当中的工作)、killall、%(后面跟job number)、nohup+&amp;(让在背景的工作在你注销后还能够继续执行)、crontab(例行性工作)</p>
 <h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a><strong>进程管理</strong></h3><p>ps(静态 -l查看自己bash进程状态、aux查看系统所有进程数据)、top(动态查看进程变化)、</p>
-<h3 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a><strong>系统资源查看</strong></h3><p>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、</p>
-<h4 id="free-内存使用情况-、lsb-release-a-显示操作系统版本信息，Linux-Standard-Base缩写lsb，意为linux标准规范库-、uname-a-显示当前操作系统与内核信息-、netstat-跟踪网络-、-proc-、"><a href="#free-内存使用情况-、lsb-release-a-显示操作系统版本信息，Linux-Standard-Base缩写lsb，意为linux标准规范库-、uname-a-显示当前操作系统与内核信息-、netstat-跟踪网络-、-proc-、" class="headerlink" title="free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、"></a>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、</h4><h3 id="源码编译软件安装"><a href="#源码编译软件安装" class="headerlink" title="源码编译软件安装"></a><strong>源码编译软件安装</strong></h3><p>./configure、make、makefile、make check、make install、gcc(-o、-L/path、-I/usr/include)、ldd(程序的动态函式库解析)、dpkg、rpm(-ivh、-qa、-Va)、</p>
+<h3 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a><strong>系统资源查看</strong></h3><p>free(内存使用情况)、lsb_release -a(显示操作系统版本信息，Linux Standard Base缩写lsb，意为linux标准规范库)、uname -a(显示当前操作系统与内核信息)、netstat(跟踪网络)、/proc/*、last(显示登陆者登陆信息)</p>
+<h3 id="源码编译软件安装"><a href="#源码编译软件安装" class="headerlink" title="源码编译软件安装"></a><strong>源码编译软件安装</strong></h3><p>./configure、make、makefile、make check、make install、gcc(-o、-L/path、-I/usr/include)、ldd(程序的动态函式库解析)、dpkg、rpm(-ivh、-qa、-Va)、</p>
 <p><img src="http://ohjnxvaxm.bkt.clouddn.com/software-manage.png" alt=""></p>
 
       

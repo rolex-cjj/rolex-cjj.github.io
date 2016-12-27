@@ -16,7 +16,7 @@
 <meta property="og:description" content="最近在linux下做开发，需要修改内存地址的值，这就涉及到内存权限的问题。这里主要讲两个方面的东西，一是修改内存权限，另一个是进程地址空间之初探。
 内存权限在Linux中，mprotect()函数可以用来修改一段指定内存区域的保护属性。
 函数原型如下：123#include &amp;lt;unistd.h&amp;gt;#include &amp;lt;sys/mmap.h&amp;gt;int mprotect(const">
-<meta property="og:updated_time" content="2016-09-30T05:15:43.594Z">
+<meta property="og:updated_time" content="2016-12-20T10:38:09.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下内存权限管理及进程地址空间查看">
 <meta name="twitter:description" content="最近在linux下做开发，需要修改内存地址的值，这就涉及到内存权限的问题。这里主要讲两个方面的东西，一是修改内存权限，另一个是进程地址空间之初探。
@@ -247,7 +247,7 @@
 </li>
 <li><p>ps命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux|grep process_name</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">lxb@lxb-Lenovo:~$ ps aux|grep studio.sh</div><div class="line">lxb      10901  0.0  0.0   4400   696 pts/2    S+   09:09   0:00 /bin/sh /home/lxb/android_studio_environment/android-studio/bin/studio.sh</div><div class="line">lxb      15793  0.0  0.0  13612   988 pts/5    S+   12:59   0:00 grep --color=auto studio.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">lxb@lxb-Lenovo:~$ ps aux|grep studio.sh</div><div class="line">lxb      10901  0.0  0.0   4400   696 pts/2    S+   09:09   0:00 /bin/sh\</div><div class="line">&gt;/home/lxb/android_studio_environment/android-studio/bin/studio.sh</div><div class="line">lxb      15793  0.0  0.0  13612   988 pts/5    S+   12:59   0:00 grep --color=auto studio.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p>查看/proc/PID/maps文件</p>
 <p>每行数据格式为：</p>
