@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -187,6 +187,69 @@
 
       <div class="body-wrap">
   
+    <article id="post-easy-to-wrong" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/29/easy-to-wrong/" class="article-date">
+  	<time datetime="2016-12-29T08:11:30.000Z" itemprop="datePublished">2016-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/29/easy-to-wrong/">算法中容易被忽视的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看算法，实在是看不下去，可还是得硬着头皮看下去，毕竟要想活得比别人漂亮，找个好工作很关键啊！！！好了，转入正题，在看算法过程中，发现有几个问题是从来没有考虑的，我以为的结果却并不是实际的结果，就喜欢这种“不走寻常路”的感觉，哈哈哈~</p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>先看下面一段简单的程序：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">	<span class="keyword">double</span> i = <span class="number">10.0000</span>;</div><div class="line">	<span class="keyword">if</span>(i == <span class="number">10</span>)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"i是10\n"</span>);</div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i != <span class="number">10</span>; i += <span class="number">0.1</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%.1f\n"</span>, i);</div><div class="line">		<span class="keyword">if</span>(i == <span class="number">10</span>)</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看着很简单是吧，你觉得结果会是什么呢？运行结果如下：</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/29/easy-to-wrong/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git-common-command" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -213,7 +276,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>git <strong>init</strong> 创建本地仓库</p>
+        <p>git <strong>config</strong> 配置或读取相应的工作环境变量</p>
+<p>git config –global user.name “name”<br>git config –global user.email “email”</p>
+<p>git <strong>init</strong> 创建本地仓库</p>
 <p>git <strong>add</strong> file 工作区提交到暂存区</p>
 <p>git <strong>commit</strong> -m “instruction” 提交到本地仓库</p>
 <p>git <strong>status</strong>  查看是否有文件被修改过</p>
@@ -282,7 +347,7 @@
         <p>计算机只能直接理解机器语言，所以任何语言，都必须将其翻译成机器语言。</p>
 <h3 id="编译和解释"><a href="#编译和解释" class="headerlink" title="编译和解释"></a><strong>编译和解释</strong></h3><p>翻译的方式有两种，一个是编译，一个是解释。两种方式只是翻译的时间不同。</p>
 <p><strong>编译型语言</strong>写的程序在被执行之前，需要一个专门的编译过程，把程序编译成为机器语言的文件，比如exe文件，以后要运行的话就不用重新翻译了，直接使用编译的结果就行了（exe文件），因为翻译只做了一次，运行时不需要翻译，所以编译型语言的程序执行效率高。</p>
-<p><strong>解释性语言</strong>的程序不需要编译，省了道工序，解释性语言在运行程序的时候才翻译，比如解释性basic语言，专门有一个<strong>解释器</strong>能够直接执行basic程序，每个语句都是执行的时候才翻译。这样解释性语言每执行一次就要翻译一次，效率比较低。</p>
+<p><strong>解释性语言</strong>的程序不需要编译，省了道工序，解释性语言在运行程序的时候才翻译，比如解释性basic语言，专门有一个<em>解释器</em>能够直接执行basic程序，每个语句都是执行的时候才翻译。这样解释性语言每执行一次就要翻译一次，效率比较低。</p>
       
     </div>
     
@@ -339,9 +404,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。</p>
-<p>骐宝宝爱你~~</p>
-<h3 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a><strong>基础指令</strong></h3><p>date、cal、bc(计算器)、</p>
-<h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a><strong>文件与目录管理</strong></h3><p>touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝scp local_file remote_username@remote_ip:remote<em>file)、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;</em>&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)、</p>
+<!--骐宝宝爱你~~-->
+<h3 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a><strong>基础指令</strong></h3><p>date、cal、bc(计算器)</p>
+<h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a><strong>文件与目录管理</strong></h3><p>touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝,win下有pscp)、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;_&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)</p>
 <h3 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a><strong>链接命令</strong></h3><p>ln(常用ln -s 建立软链接，硬链接不常用)</p>
       
     </div>
@@ -503,71 +568,6 @@
 
 
   
-    <article id="post-vmware-extend-ubuntu-Hard-Disk" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/15/vmware-extend-ubuntu-Hard-Disk/" class="article-date">
-  	<time datetime="2016-11-15T03:14:20.000Z" itemprop="datePublished">2016-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/15/vmware-extend-ubuntu-Hard-Disk/">使用gparted 扩充vmware中linux硬盘容量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在vmware中使用linux，经常会遇到初始化硬盘容量不够的情况，所以学会扩容很重要。我使用gparted工具进行空间扩展。</p>
-<h3 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h3><p>首先选择虚拟机-&gt;设置-&gt;硬盘-&gt;扩展，输入要扩大的容量。此时只是扩大了虚拟机的容量，还没有扩大分区容量。</p>
-<h3 id="安装gparted"><a href="#安装gparted" class="headerlink" title="安装gparted"></a>安装gparted</h3><p>进入linux，安装gparted工具。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gparted</div></pre></td></tr></table></figure>
-<p>打开gparted，发现有一部分为unallocated，此时需要把unallocated加入到/dev/sda1中，才能使用扩展后的空间。</p>
-<p>也可以下载gparted 的iso文件，把iso镜像插入ubuntu启动光驱，启动虚拟机时进入vmware bios设置，选择从CD启动，然后进入gparted分区界面。</p>
-<p>详情可以查看以下链接。</p>
-<p><a href="http://www.linuxdiyf.com/linux/23533.html" target="_blank" rel="external">使用gparted工具扩充vmware UBUNTU虚拟机磁盘空间</a></p>
-<p><a href="http://blog.163.com/squall_smile/blog/static/60349840201362885726180/" target="_blank" rel="external">vmware虚拟机的ubuntu系统下不重新分区而扩大磁盘容量  </a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -578,7 +578,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Lorris
+    		&copy; 2017 Lorris
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/rolex-cjj/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
