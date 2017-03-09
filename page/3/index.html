@@ -16,8 +16,6 @@
 <meta name="twitter:title" content="Lorris's Blog">
 <meta name="twitter:description" content="我只是一个想努力提高自己的程序渣……">
   
-    <link rel="alternative" href="/atom.xml" title="Lorris&#39;s Blog" type="application/atom+xml">
-  
   
 	
       <link rel="icon" href="/favicon.png">
@@ -104,8 +102,6 @@
 					        
 								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
 								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
 					        
 						</div>
@@ -115,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -175,8 +171,6 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
 			        
 				</div>
@@ -186,69 +180,6 @@
 </nav>
 
       <div class="body-wrap">
-  
-    <article id="post-linux-memory-address-access" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/30/linux-memory-address-access/" class="article-date">
-  	<time datetime="2016-09-30T03:41:36.000Z" itemprop="datePublished">2016-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/30/linux-memory-address-access/">linux下内存权限管理及进程地址空间查看</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在linux下做开发，需要修改内存地址的值，这就涉及到内存权限的问题。这里主要讲两个方面的东西，一是修改内存权限，另一个是进程地址空间之初探。</p>
-<h2 id="内存权限"><a href="#内存权限" class="headerlink" title="内存权限"></a>内存权限</h2><p>在Linux中，mprotect()函数可以用来修改一段指定内存区域的保护属性。</p>
-<p>函数原型如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mmap.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">mprotect</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *start, <span class="keyword">size_t</span> len, <span class="keyword">int</span> prot)</span></span>;</div></pre></td></tr></table></figure></p>
-<p>mprotect()函数把自start开始的、长度为len的内存区的保护属性修改为prot指定的值。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/30/linux-memory-address-access/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-how-to-solve-adb-device-not-found-in-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -403,6 +334,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近在看linux elf文件格式，发现对一个可执行文件的运作完全不了解，所以先简单摘录一下。</p>
+<p>【摘抄】</p>
 <h2 id="链接器和装入器的基本工作原理"><a href="#链接器和装入器的基本工作原理" class="headerlink" title="链接器和装入器的基本工作原理"></a>链接器和装入器的基本工作原理</h2><p>一个程序在内存中运行，需要经过编译，链接，装入这几个步骤。源文件先是被编译成一个个目标文件, 再由链接器把这些目标文件组合成一个可执行文件或库。<strong>编译</strong>就是把高级语言变成计算机可以识别的2进制语言。<strong>链接</strong>的过程，其核心工作是解决模块间各种符号(变量，函数)相互引用的问题，对符号的引用本质是对其在内存中具体地址的引用，因此确定符号地址是编译，链接，加载过程中一项不可缺少的工作，这就是所谓的符号重定位。<strong>本质上来说，符号重定位要解决的是当前编译单元如何访问「外部」符号这个问题。</strong></p>
 <p>编译器只能在一个模块内部完成符号名到地址的转换工作，不同模块间的符号解析由谁来做呢？实际上，这个工作是由链接器来完成的。</p>
 <p>为了解决不同模块间的链接问题，链接器主要有两个工作要做――符号解析和重定位：</p>
@@ -550,6 +482,67 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/02/how-to-synchronize-between-multiPCs/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-formal-model" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/formal-model/" class="article-date">
+  	<time datetime="2016-08-30T14:55:59.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/30/formal-model/">Formal Model</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="形式化模型"><a href="#形式化模型" class="headerlink" title="形式化模型"></a>形式化模型</h2><h2 id="所属分类"><a href="#所属分类" class="headerlink" title="所属分类"></a>所属分类</h2><p>是软工开发模型中的一种，也可以称为<a href="http://baike.baidu.com/view/1731679.htm" title="形式化方法">形式化方法</a>模型，与之相关的有形式验证。关于软件开发模型，可以参考这里<a href="http://baike.baidu.com/link?url=wJVgewe83lUylVstp9_EZJwjkd7wSwVCRpwDsnEvZrHyY0rwwAs94V_aLJLZkJXfqKuM4-aOJVxc7gAbbVQbp_">软件开发模型</a>。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>形式化模型的主要活动是生成计算机软件形式化的数学规格说明。形式化方法使软件开发人员可以应用严格的数学符号来说明、开发和验证基于计算机的系统。形式化方法的本质是基于数学的方法来描述目标软件系统属性的一种技术。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/30/formal-model/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
