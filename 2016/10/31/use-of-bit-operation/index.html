@@ -18,7 +18,7 @@
 简单位运算按位与&amp;amp;清零：如果想将一个单元清零，只要与一个各位都为零的数值相与，结果为零。
 取一个数中指定位：找一个数，对应X要取得位，该数的对应位为1，其余位为零，次数与X进行“与运算”可以得到X中的指定位。
 按位或|将一个数据的某些位置1：找一个数，对应X要置1的位，该数的对应位为1，">
-<meta property="og:updated_time" content="2016-12-05T07:21:01.199Z">
+<meta property="og:updated_time" content="2017-03-16T06:34:51.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算的特殊用法">
 <meta name="twitter:description" content="在计算机中，使用位运算代替一些逻辑运算，可以大大加快运算的速度。所以掌握位运算的一些特殊用法大有必要。
@@ -121,7 +121,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/软件开发/" style="font-size: 13.33px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -243,8 +243,8 @@
 <h4 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移&gt;&gt;"></a><strong>右移&gt;&gt;</strong></h4><p>正数左补0，负数左补1。每右移一位，相当于该数除以2。</p>
 <h3 id="位运算实现加减乘除"><a href="#位运算实现加减乘除" class="headerlink" title="位运算实现加减乘除"></a><strong>位运算实现加减乘除</strong></h3><h4 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a><strong>加法运算</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>  </span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> result;  </div><div class="line">    <span class="keyword">while</span>(b)       <span class="comment">// 直到没有进位  </span></div><div class="line">    &#123;  </div><div class="line">        result = a^b;       <span class="comment">// 不带进位的加法  </span></div><div class="line">        b = ((a&amp;b)&lt;&lt;<span class="number">1</span>);  <span class="comment">// 进位  </span></div><div class="line">        a = result;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> a;  </div><div class="line">    <span class="comment">/*简化版</span></div><div class="line">    return b==0 ? a: add(a^b,(a&amp;b)&lt;&lt;1);  </div><div class="line">    */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>思路就是先不计进位相加，然后再与进位相加，随着递归，进位会变为0，递归结束。</p>
-<h4 id="负数表示"><a href="#负数表示" class="headerlink" title="负数表示"></a><strong>负数表示</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">negtive</span><span class="params">(<span class="keyword">int</span> a)</span>   <span class="comment">//取补码  </span></span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">return</span> add(~a, <span class="number">1</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>二进制中，一个负数可以表示为正数的补码形式，即正数的反码加1。</p>
+<h4 id="负数表示"><a href="#负数表示" class="headerlink" title="负数表示"></a><strong>负数表示</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">negtive</span><span class="params">(<span class="keyword">int</span> a)</span>   <span class="comment">//  </span></span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">return</span> add(~a, <span class="number">1</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>二进制中，一个负数可以表示为正数各位取反加1。</p>
 <h4 id="减法运算"><a href="#减法运算" class="headerlink" title="减法运算"></a><strong>减法运算</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">return</span> add(a,negative(b));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>减法和加法一样，加数为减数的相反数。</p>
 <h4 id="判断为0"><a href="#判断为0" class="headerlink" title="判断为0"></a><strong>判断为0</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isZero</span><span class="params">(<span class="keyword">int</span> a)</span></span></div><div class="line"> &#123;</div><div class="line">   <span class="keyword">return</span> !(a&amp;<span class="number">0xffff</span>);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
@@ -265,11 +265,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/11/15/vmware-extend-ubuntu-Hard-Disk/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/12/javaSE-abstraction1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          使用gparted 扩充vmware中linux硬盘容量
+          JAVA基础知识点摘录1
         
       </div>
     </a>

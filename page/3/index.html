@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/软件开发/" style="font-size: 15px;">软件开发</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/BIOS/" style="font-size: 10px;">BIOS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/TeamViewer/" style="font-size: 10px;">TeamViewer</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apt-mirror/" style="font-size: 10px;">apt-mirror</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/nsight/" style="font-size: 10px;">nsight</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/位运算/" style="font-size: 10px;">位运算</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/软件开发/" style="font-size: 13.33px;">软件开发</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,141 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-apt-mirror-to-create-native-ubuntu-source" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/" class="article-date">
+  	<time datetime="2016-10-18T07:40:17.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/">Ubuntu16.04 使用apt-mirror配置本地源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装apt-mirror"><a href="#安装apt-mirror" class="headerlink" title="安装apt-mirror"></a><strong>安装apt-mirror</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo apt-get install apt-mirror</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>查看系统的研发代号</strong></li>
+</ul>
+<p>首先查看自己的Ubuntu系统的Codename，这直接导致你更新的源是否对你的系统起效果，查看方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsb_release –a</div></pre></td></tr></table></figure>
+<p>我的系统Codename为xenial。</p>
+<ul>
+<li><strong>确认源支持</strong></li>
+</ul>
+<p>以阿里源为例，登陆 <a href="http://mirrors.aliyun.com/ubuntu/dists/">http://mirrors.aliyun.com/ubuntu/dists/</a> ，该网页显示了阿里云支持的Ubuntu系统下各个Codename版本，确保自己的Codename在该网页中存在。</p>
+<p>附上Ubuntu16.04源列表：<a href="http://wiki.ubuntu.com.cn/%E6%A8%A1%E6%9D%BF:16.04source">http://wiki.ubuntu.com.cn/%E6%A8%A1%E6%9D%BF:16.04source</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apt-mirror/">apt-mirror</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/18/apt-mirror-to-create-native-ubuntu-source/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux-memory-address-access" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/30/linux-memory-address-access/" class="article-date">
+  	<time datetime="2016-09-30T03:41:36.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/30/linux-memory-address-access/">linux下内存权限管理及进程地址空间查看</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在linux下做开发，需要修改内存地址的值，这就涉及到内存权限的问题。这里主要讲两个方面的东西，一是修改内存权限，另一个是进程地址空间之初探。</p>
+<p>【摘抄】</p>
+<h2 id="内存权限"><a href="#内存权限" class="headerlink" title="内存权限"></a>内存权限</h2><p>在Linux中，mprotect()函数可以用来修改一段指定内存区域的保护属性。</p>
+<p>函数原型如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/mmap.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">mprotect</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *start, <span class="keyword">size_t</span> len, <span class="keyword">int</span> prot)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>mprotect()函数把自start开始的、长度为len的内存区的保护属性修改为prot指定的值。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/30/linux-memory-address-access/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-how-to-solve-adb-device-not-found-in-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -414,135 +549,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/24/Android-Studio-NDK-Debugging/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-how-to-synchronize-between-multiPCs" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/how-to-synchronize-between-multiPCs/" class="article-date">
-  	<time datetime="2016-09-02T05:56:42.000Z" itemprop="datePublished">2016-09-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/how-to-synchronize-between-multiPCs/">Github实现不同电脑下hexo博客的同步</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hexo+github如何建立自己的博客在上节中已经讲过了，详情请见<a href="https://rolex-cjj.github.io/2016/08/30/how-to-build-my-own-blog-by-hexo/">如何用Hexo搭建Github静态博客</a></p>
-<p>本节将介绍如何在不同电脑上同步本地的博客。假设A电脑为建立博客的设备，B电脑为新设备。</p>
-<h2 id="A电脑中从本地上传Hexo到Github仓库"><a href="#A电脑中从本地上传Hexo到Github仓库" class="headerlink" title="A电脑中从本地上传Hexo到Github仓库"></a>A电脑中从本地上传Hexo到Github仓库</h2><ul>
-<li><strong>初始化仓库</strong></li>
-</ul>
-<p>在Hexo博客的根目录运行Git Bash并输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git remote add origin &lt;server address&gt;</div></pre></td></tr></table></figure>
-<p> 这里<server>指的是在线仓库的地址，比如在这里我的就应该是<a href="https://github.com/rolex-cjj/blog.git">https://github.com/rolex-cjj/blog.git</a>, 如果你用其它git仓库服务，填写对应仓库地址即可.</p>
-<p>origin是本地分支,remote add会将本地仓库映射到Github仓库</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/02/how-to-synchronize-between-multiPCs/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-formal-model" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/30/formal-model/" class="article-date">
-  	<time datetime="2016-08-30T14:55:59.000Z" itemprop="datePublished">2016-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/30/formal-model/">Formal Model</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="形式化模型"><a href="#形式化模型" class="headerlink" title="形式化模型"></a>形式化模型</h2><h2 id="所属分类"><a href="#所属分类" class="headerlink" title="所属分类"></a>所属分类</h2><p>是软工开发模型中的一种，也可以称为<a href="http://baike.baidu.com/view/1731679.htm" title="形式化方法">形式化方法</a>模型，与之相关的有形式验证。关于软件开发模型，可以参考这里<a href="http://baike.baidu.com/link?url=wJVgewe83lUylVstp9_EZJwjkd7wSwVCRpwDsnEvZrHyY0rwwAs94V_aLJLZkJXfqKuM4-aOJVxc7gAbbVQbp_">软件开发模型</a>。</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>形式化模型的主要活动是生成计算机软件形式化的数学规格说明。形式化方法使软件开发人员可以应用严格的数学符号来说明、开发和验证基于计算机的系统。形式化方法的本质是基于数学的方法来描述目标软件系统属性的一种技术。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/30/formal-model/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
