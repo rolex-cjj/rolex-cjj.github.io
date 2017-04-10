@@ -14,16 +14,16 @@
 <meta property="og:site_name" content="Lorris's Blog">
 <meta property="og:description" content="ServletServlet是JSP的前身。是在服务器端运行的小程序。一个Servlet就是一个java类，并可以通过“请求-响应”编程模型访问驻留在服务器内存里的Servlet程序。
 执行流程">
-<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/servlet-execution.jpg">
+<meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/execution-servlet.jpg">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/servlet-lifetime.jpg">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/servlet-nine-object.jpg">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/jsp-lifetime.png">
-<meta property="og:updated_time" content="2017-03-09T03:00:10.481Z">
+<meta property="og:updated_time" content="2017-03-22T07:29:53.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP基础知识摘录">
 <meta name="twitter:description" content="ServletServlet是JSP的前身。是在服务器端运行的小程序。一个Servlet就是一个java类，并可以通过“请求-响应”编程模型访问驻留在服务器内存里的Servlet程序。
 执行流程">
-<meta name="twitter:image" content="http://ohjnxvaxm.bkt.clouddn.com/servlet-execution.jpg">
+<meta name="twitter:image" content="http://ohjnxvaxm.bkt.clouddn.com/execution-servlet.jpg">
   
   
 	
@@ -226,7 +226,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a><strong>Servlet</strong></h3><p>Servlet是JSP的前身。是在服务器端运行的小程序。一个Servlet就是一个java类，并可以通过“请求-响应”编程模型访问驻留在服务器内存里的Servlet程序。</p>
-<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a><strong>执行流程</strong></h4><p><img src="http://ohjnxvaxm.bkt.clouddn.com/servlet-execution.jpg" alt=""></p>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a><strong>执行流程</strong></h4><p><img src="http://ohjnxvaxm.bkt.clouddn.com/execution-servlet.jpg" alt=""></p>
 <a id="more"></a>
 <h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a><strong>生命周期</strong></h4><p>1）初始化阶段，调用init方法，在servlet整个生命周期内，只调用一次。在执行构造方法之后。</p>
 <p>2）响应客户请求阶段，调用service方法。由service方法根据提交方式选择执行doGet()或者doPost()方法。</p>
@@ -237,7 +237,7 @@
 <h3 id="JSP指令"><a href="#JSP指令" class="headerlink" title="JSP指令"></a><strong>JSP指令</strong></h3><p>page：用于定义JSP文件中的全局属性，同一页面可有多个page指令&lt;%@ page 属性=”属性值”%&gt;</p>
 <p>include：在JSP文件被编译之前，将其他资源内嵌到当前文件中&lt;%@ include file=”filename”%&gt;</p>
 <p>taglib：定义一个标签库以及自定义标签的前缀</p>
-<h3 id="JSP脚本元素"><a href="#JSP脚本元素" class="headerlink" title="JSP脚本元素"></a><strong>JSP脚本元素</strong></h3><p>注释：\<!--comment  --> &lt;%–  comment –%&gt;</p>
+<h3 id="JSP脚本元素"><a href="#JSP脚本元素" class="headerlink" title="JSP脚本元素"></a><strong>JSP脚本元素</strong></h3><p>注释：&lt;!–comment  –&gt; &lt;%--  comment –%&gt;</p>
 <p>变量和方法声明：&lt;%! declaration;[declaration;]%&gt;</p>
 <p>表达式：&lt;%= expression %&gt;</p>
 <p>嵌入网页的程序段(Scriptlet)：&lt;%  code fragment%&gt;</p>
@@ -250,14 +250,15 @@
 <p>page对象就是指向当前JSP页面本身。</p>
 <p>pageContext对象获取页面属性，能够存取其他隐含对象，比较强大。</p>
 <p>exception对象是一个异常对象，当一个页面在运行过程中发生了异常，就产生这个对象。如果一个JSP页面要应用此对象，必须把isErrorPage设为true。</p>
-<h3 id="JSP动作元素"><a href="#JSP动作元素" class="headerlink" title="JSP动作元素"></a><strong>JSP动作元素</strong></h3><p>重定向操作：\<jsp:forward page="URL"></jsp:forward></p>
-<p>​            等同于request.getRequestDispatcher(“/url”).forward(request,response);</p>
-<p>包含操作：\<jsp:include page="URL"></jsp:include></p>
-<p>param动作：\<jsp:param name="参数名" value="">常与forward动作一起使用，作为其的子标签。</jsp:param></p>
-<p>嵌入插件：\<jsp:plugin></jsp:plugin></p>
-<p>创建Bean实例：\<jsp:usebean id="" class="" scope=""></jsp:usebean></p>
-<p>设置Bean属性：\<jsp:setproperty name="javabean实例名" property="javabean属性名,*为所有属性" [value="beanvalue" param="request对象中的参数名" ]="">(跟表单name相关)</jsp:setproperty></p>
-<p>获取Bean属性：\<jsp:getproperty name="javabean实例名" property="javabean属性名"></jsp:getproperty></p>
+<h3 id="JSP动作元素"><a href="#JSP动作元素" class="headerlink" title="JSP动作元素"></a><strong>JSP动作元素</strong></h3><p>转发操作：\<jsp:forward page="URL" \=""></jsp:forward></p>
+<p>等同于request.getRequestDispatcher(“/url”).forward(request,response);</p>
+<p>包含操作：\<jsp:include page="URL" \=""></jsp:include></p>
+<p>param动作：\<jsp:param name="参数名" value="" \="">常与forward动作一起使用，作为其的子标签。</jsp:param></p>
+<p>嵌入插件：\<jsp:plugin\></jsp:plugin\></p>
+<p>创建Bean实例：\<jsp:usebean id="" class="" scope="" \=""></jsp:usebean></p>
+<p>设置Bean属性：\<jsp:setproperty name="javabean实例名" property="javabean属性名,*为所有属性" [value="beanvalue" param="request对象中的参数名" ]="" \=""></jsp:setproperty></p>
+<p>(跟表单name相关，param属性不能和value属性一起使用)</p>
+<p>获取Bean属性：\<jsp:getproperty name="javabean实例名" property="javabean属性名" \=""></jsp:getproperty></p>
 <h3 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a><strong>JavaBean</strong></h3><p>一种特殊的java类。遵循了一定的设计原则。</p>
 <p>1）公有类</p>
 <p>2）有无参的公有构造方法</p>
@@ -307,7 +308,7 @@
 <tr>
 <td style="text-align:center">语法格式</td>
 <td style="text-align:center">&lt;%@ include file=”..”%&gt;</td>
-<td style="text-align:center">\<jsp:include page=".."></jsp:include></td>
+<td style="text-align:center">\<jsp:include page=".." \=""></jsp:include></td>
 </tr>
 <tr>
 <td style="text-align:center">发生作用时间</td>
@@ -336,7 +337,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>include指令：</strong>它的主要优点是功能强大，所包含的代码可以含有总体上影响主页面的JSP构造，比如属性、方法的定义和文档类型的设定。它的缺点是难于维护只要被包含的页面发生更改，就得更改主页面，这是因为主页面不会自动地查看被包含的页面是否发生更改。</p>
+<p><strong>include指令：</strong>它的主要优点是功能强大，所包含的代码可以含有总体上影响主页面的JSP构造，比如属性、方法的定义和文档类型的设定。它的缺点是难于维护，只要被包含的页面发生更改，就得更改主页面，这是因为主页面不会自动地查看被包含的页面是否发生更改。</p>
 <p><strong>include动作：</strong>它的优点是在被包含的页面发生更改时，无须对主页面做出修改。它的缺点是所包含的是次级页面的输出，而非次级页面的实际代码，所以在被包含的页面中不能使用任何有可能在整体上影响主页面的JSP构造。</p>
 <p>仅当include动作不能满足要求时，我们才应该使用include指令。对于文件包含，应该尽可能地使用<strong>include动作</strong>。仅在所包含的文件中定义了主页面要用到的字段或方法，或所包含的文件设置了主页面的响应报头时，才应该使用include指令。</p>
 

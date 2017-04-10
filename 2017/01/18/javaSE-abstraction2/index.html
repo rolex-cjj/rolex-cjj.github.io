@@ -15,7 +15,7 @@ StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer
 <meta property="og:description" content="StringString类具有不可变性。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。
 StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer 是线程安全的，而 StringBuilder 则没有实现线程安全功能，所以性能略高。因此一般情况下，如果需要创建一个内容可变的字符串对象，应优先考虑使用 StringB">
 <meta property="og:image" content="http://ohjnxvaxm.bkt.clouddn.com/thread-status.JPG">
-<meta property="og:updated_time" content="2017-03-20T11:45:01.584Z">
+<meta property="og:updated_time" content="2017-03-23T07:21:33.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础知识点摘录2">
 <meta name="twitter:description" content="StringString类具有不可变性。使用 StringBuilder 或 StringBuffer 就可以避免这个问题。
@@ -280,7 +280,8 @@ StringBuilder 和StringBuffer，它们基本相似，不同之处，StringBuffer
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">Integer x = <span class="keyword">new</span> Integer(i);<span class="comment">//手动装箱</span></div><div class="line">Integer y = i;<span class="comment">//自动装箱</span></div></pre></td></tr></table></figure>
 <p>拆箱：和装箱相反，把包装类对象转换成基本类型的值，又可分为手动拆箱和自动拆箱。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Integer x = <span class="keyword">new</span> Integer(<span class="number">8</span>);</div><div class="line"><span class="keyword">int</span> i = x.intValue();<span class="comment">//手动拆箱</span></div><div class="line"><span class="keyword">int</span> j = x;<span class="comment">//自动拆箱</span></div></pre></td></tr></table></figure>
-<p>自动拆箱/装箱发生在基本类型值与对象需要相互转换的时候，也适用于表达式计算。在表达式中，对象会被自动拆箱参与计算，如果有必要，表达式的结果会被重新装箱。</p>
+<p>自动拆箱/装箱发生在基本类型值与对象需要相互转换的时候，也适用于表达式计算。在表达式中，对象会被自动拆箱参与计算，如果有必要，表达式的结果会被重新装箱。当包装器类型和基本数据类型进行“==”比较时，包装器类型会自动拆箱为基本数据类型。两个包装类对象比较时是比较地址。</p>
+<p>在java中，会对-128到127的Integer对象进行缓存。当调用Integer.valueOf(int i)方法，如果-128&lt;i&lt;127，则直接返回常量池中的值，否则new一个。所以创建Integer对象使用该方法好一些。</p>
 <h3 id="基本类型和字符串转换"><a href="#基本类型和字符串转换" class="headerlink" title="基本类型和字符串转换"></a><strong>基本类型和字符串转换</strong></h3><p>基本类型转换为字符串有三种方法：</p>
 <ol>
 <li>使用包装类的 toString() 方法  </li>

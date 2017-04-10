@@ -181,6 +181,70 @@
 
       <div class="body-wrap">
   
+    <article id="post-linux-common-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/02/linux-common-commands/" class="article-date">
+  	<time datetime="2016-12-02T03:13:00.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/linux-common-commands/">linux 常用命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习linux是一个很漫长的过程，需要不断地动手练习才能灵活使用它。</p>
+<!--骐宝宝爱你~~-->
+<h3 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a><strong>基础指令</strong></h3><p>date、cal、bc(计算器)</p>
+<h3 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a><strong>文件与目录管理</strong></h3><p>touch、mkdir、cp(在本机进行拷贝不能跨服务器)、scp(scp传输是加密的,基于ssh登陆进行安全的远程文件拷贝,win下有pscp)、mv(相同目录下使用为重命名，不同目录下为剪切)、rm(rm -rf一定要少用!!!深受其害!!! ~~o(&gt;_&lt;)o ~~)、file(查看文件类型)、pwd(查看当前路径)、ls(ls -l -a -h)、whoami(目前身份)</p>
+<h3 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a><strong>链接命令</strong></h3><p>ln(常用ln -s 建立软链接，硬链接不常用)</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/02/linux-common-commands/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-cuda-nsight-debug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -207,7 +271,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>编代码容易，debug难啊！debug cuda程序并没有想象中那么容易。占用了我好久时间才弄好，还是太年轻啊！</p>
+        <p>debug cuda程序貌似并没有想象中那么容易。</p>
 <p>我的环境是ubuntu16.04， cuda_toolkit 8.0 ，显卡驱动为nvidia-367，debug提示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">All CUDA devices are used for X11 and cannot be used while debugging</div></pre></td></tr></table></figure>
 <p>查阅<a href="http://docs.nvidia.com/cuda/cuda-gdb/index.html#using-debugger">CUDA-GDB</a>发现：</p>
@@ -471,7 +535,7 @@
       
         <p>在计算机中，使用位运算代替一些逻辑运算，可以大大加快运算的速度。所以掌握位运算的一些特殊用法大有必要。</p>
 <h3 id="简单位运算"><a href="#简单位运算" class="headerlink" title="简单位运算"></a><strong>简单位运算</strong></h3><h4 id="按位与-amp"><a href="#按位与-amp" class="headerlink" title="按位与&amp;"></a><strong>按位与&amp;</strong></h4><p><strong>清零</strong>：如果想将一个单元清零，只要与一个各位都为零的数值相与，结果为零。</p>
-<p><strong>取一个数中指定位</strong>：找一个数，对应X要取得位，该数的对应位为1，其余位为零，次数与X进行“与运算”可以得到X中的指定位。</p>
+<p><strong>取一个数中指定位</strong>：找一个数，对应X要取得的位，该数的对应位为1，其余位为零，该数与X进行“与运算”可以得到X中的指定位。</p>
 <h4 id="按位或"><a href="#按位或" class="headerlink" title="按位或|"></a><strong>按位或|</strong></h4><p><strong>将一个数据的某些位置1</strong>：找一个数，对应X要置1的位，该数的对应位为1，其余位为零，该数与X相或可使X中的某些位置1。</p>
       
     </div>
@@ -488,67 +552,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/10/31/use-of-bit-operation/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jsp-abstraction" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/26/jsp-abstraction/" class="article-date">
-  	<time datetime="2016-10-26T03:14:55.000Z" itemprop="datePublished">2016-10-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/26/jsp-abstraction/">JSP基础知识摘录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a><strong>Servlet</strong></h3><p>Servlet是JSP的前身。是在服务器端运行的小程序。一个Servlet就是一个java类，并可以通过“请求-响应”编程模型访问驻留在服务器内存里的Servlet程序。</p>
-<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a><strong>执行流程</strong></h4><p><img src="http://ohjnxvaxm.bkt.clouddn.com/servlet-execution.jpg" alt=""></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp/">jsp</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/26/jsp-abstraction/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

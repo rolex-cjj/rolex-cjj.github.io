@@ -181,6 +181,67 @@
 
       <div class="body-wrap">
   
+    <article id="post-jsp-abstraction" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/26/jsp-abstraction/" class="article-date">
+  	<time datetime="2016-10-26T03:14:55.000Z" itemprop="datePublished">2016-10-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/26/jsp-abstraction/">JSP基础知识摘录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a><strong>Servlet</strong></h3><p>Servlet是JSP的前身。是在服务器端运行的小程序。一个Servlet就是一个java类，并可以通过“请求-响应”编程模型访问驻留在服务器内存里的Servlet程序。</p>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a><strong>执行流程</strong></h4><p><img src="http://ohjnxvaxm.bkt.clouddn.com/execution-servlet.jpg" alt=""></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp/">jsp</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/26/jsp-abstraction/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-apt-mirror-to-create-native-ubuntu-source" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -474,7 +535,7 @@
 <p>编译器只能在一个模块内部完成符号名到地址的转换工作，不同模块间的符号解析由谁来做呢？实际上，这个工作是由链接器来完成的。</p>
 <p>为了解决不同模块间的链接问题，链接器主要有两个工作要做――符号解析和重定位：</p>
 <p><strong>符号解析：</strong>当一个模块使用了在该模块中没有定义过的函数或全局变量时，编译器生成的符号表会标记出所有这样的函数或全局变量，而链接器的责任就是要到别的模块中去查找它们的定义，如果没有找到合适的定义或者找到的合适的定义不唯一，符号解析都无法正常完成。</p>
-<p><strong>重定位：</strong>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，链接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个的拼装起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段中的某些位置进行修改。编译器编译文件时时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“<strong>重定位表</strong>”(relocatioin table), 链接器通过重定位表知道目标文件中哪些地方需要修正。</p>
+<p><strong>重定位：</strong>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，链接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个的拼装起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段中的某些位置进行修改。编译器编译文件时，会建立一系列表项，用来记录哪些地方需要在重定位时进行修正，这些表项叫作“<strong>重定位表</strong>”(relocatioin table), 链接器通过重定位表知道目标文件中哪些地方需要修正。</p>
       
     </div>
     
@@ -486,69 +547,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/26/linking-and-loading-of-program/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-Studio-NDK-Debugging" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/24/Android-Studio-NDK-Debugging/" class="article-date">
-  	<time datetime="2016-09-24T02:05:28.000Z" itemprop="datePublished">2016-09-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/Android-Studio-NDK-Debugging/">Android Studio NDK 调试</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本人最近在接触Android Studio，是个新手，完全不懂，发现它和eclipse还是有一些差别的。Android开发过程中要Debug，弄了好久才弄好，现在整理一下，方便以后查看。</p>
-<p>我的IDE是Android Studio 1.5.1，NDK是 android-ndk-r10e。前面的一些配置我就不细说了，主要是针对Debug整理一下。</p>
-<h2 id="步骤1"><a href="#步骤1" class="headerlink" title="步骤1"></a>步骤1</h2><p>打开module的build.gradle文件，在buildTypes下添加以下代码。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">debug&#123;</div><div class="line">  jniDebuggable true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件开发/">软件开发</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/24/Android-Studio-NDK-Debugging/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
